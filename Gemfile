@@ -7,4 +7,7 @@ gemspec
 
 gem "rake"
 gem "rspec"
+gem "rubocop-rspec"
+gem "standard-performance"
+gem "standard-rails"
 gem "standard"
