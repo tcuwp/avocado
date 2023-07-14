@@ -1,5 +1,6 @@
 ## [Unreleased]
 
-## [0.1.0] - 2023-07-13
+## [0.1.0] - 2023-07-14
 
 - Initial release
+- Add `Avocado::UserConcern` which calls `has_secure_password`
