@@ -3,7 +3,7 @@
 RSpec.describe User do
   describe "Authentication" do
     it "authenticates with email and password" do
-      user_params = {email: "test@host.example", password: "testtest"}
+      user_params = {email: "test@host.example", password: "Test.1234"}
       user = create(:user, user_params)
 
       expect(described_class.authenticate_by(user_params)).to eq(user)
@@ -31,8 +31,10 @@ RSpec.describe User do
     end
 
     describe "Password" do
-      subject { build(:user) }
-
+      it { is_expected.not_to allow_value("!@#$%^&*").for(:password) }
+      it { is_expected.not_to allow_value("12341234").for(:password) }
+      it { is_expected.not_to allow_value("TestTest").for(:password) }
+      it { is_expected.to allow_value("Test.1234").for(:password) }
       it { is_expected.to validate_length_of(:password).is_at_least(Avocado::UserPasswordConcern::REQUIRED_LENGTH) }
     end
   end
