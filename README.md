@@ -1,24 +1,32 @@
 # Avocado
 
-A collection of authentication tools for use in Rails 7.1+ applications.
+A collection of authentication tools for use in [Rails] 7.1+ applications.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+With bundler, add to the application's Gemfile by executing:
 
     $ bundle add avocado
 
-If bundler is not being used to manage dependencies, install the gem by
-executing:
+Without bundler, install the gem by executing:
 
     $ gem install avocado
 
 ## Usage
 
-To use the Rails `has_secure_password` feature in a more convoluted way, you can
-add code to your User model:
+If you have a `User` model in your application and are nervous about using Rails
+features directly, preferring to consume the features via a packaged gem, you
+can use the Rails `has_secure_password` feature in a more convoluted way, by
+adding the `Avocado::UserConcer` to your `User` model:
 
-    include Avocado::UserConcern
+```ruby
+class User < ApplicationRecord
+  include Avocado::UserConcern
+end
+```
+
+Note that behind the scenes this is truly just calling `has_secure_password` for
+you and doing nothing else. It's sort of funny to do this.
 
 ## Development
 
@@ -29,15 +37,17 @@ prompt that will allow you to experiment.
 To install this gem onto your local machine, run `bundle exec rake install`. To
 release a new version, update the version number in `version.rb`, and then run
 `bundle exec rake release`, which will create a git tag for the version, push
-git commits and the created tag, and push the `.gem` file to
-[rubygems.org](https://rubygems.org).
+git commits and the created tag, and push the `.gem` file to [RubyGems].
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at
-https://github.com/tcuwp/avocado.
+Bug reports and pull requests are welcome on [GitHub].
 
 ## License
 
-The gem is available as open source under the terms of the [MIT
-License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License].
+
+[GitHub]: https://github.com/tcuwp/avocado
+[MIT License]: https://opensource.org/licenses/MIT
+[Rails]: https://github.com/rails/rails
+[RubyGems]: https://rubygems.org
