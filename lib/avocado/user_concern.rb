@@ -11,7 +11,7 @@ module Avocado
 
       validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
 
-      normalizes :email, with: ->(email) { email.strip }
+      normalizes :email, with: ->(email) { email.downcase.strip }
     end
   end
 end
