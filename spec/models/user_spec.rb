@@ -10,4 +10,8 @@ RSpec.describe User do
       expect(described_class.authenticate_by(user_params)).to eq(user)
     end
   end
+
+  describe "Validations" do
+    it { is_expected.to validate_presence_of(:email) }
+  end
 end
