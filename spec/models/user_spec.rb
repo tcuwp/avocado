@@ -30,4 +30,14 @@ RSpec.describe User do
       it { is_expected.to allow_value("user+scope@host.example").for(:email) }
     end
   end
+
+  describe "Normalizations" do
+    describe "Email" do
+      it "removes whitespace during save" do
+        user = create(:user, email: "  user@host.example   ")
+
+        expect(user.email).to eq("user@host.example")
+      end
+    end
+  end
 end
