@@ -26,6 +26,8 @@ RSpec.describe User do
       it { is_expected.not_to allow_value("user@").for(:email) }
       it { is_expected.not_to allow_value("user@host.example@host.example").for(:email) }
       it { is_expected.to allow_value("user@host.example").for(:email) }
+      it { is_expected.to allow_value("user@multiple.names.host.example").for(:email) }
+      it { is_expected.to allow_value("user+scope@host.example").for(:email) }
     end
   end
 end
