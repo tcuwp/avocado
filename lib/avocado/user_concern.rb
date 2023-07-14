@@ -8,6 +8,8 @@ module Avocado
 
     included do
       has_secure_password
+
+      validates :email, presence: true
     end
   end
 end
