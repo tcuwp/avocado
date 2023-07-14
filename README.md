@@ -17,7 +17,7 @@ Without bundler, install the gem by executing:
 If you have a `User` model in your application and are nervous about using Rails
 features directly, preferring to consume the features via a packaged gem, you
 can use the Rails `has_secure_password` feature in a more convoluted way, by
-adding the `Avocado::UserConcer` to your `User` model:
+adding the `Avocado::UserConcern` to your `User` model:
 
 ```ruby
 class User < ApplicationRecord
