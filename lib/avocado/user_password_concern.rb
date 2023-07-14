@@ -12,7 +12,7 @@ module Avocado
     included do
       has_secure_password
 
-      validates :password, format: {with: REQUIRED_FORMAT}, length: {minimum: REQUIRED_LENGTH}
+      validates :password, format: {with: REQUIRED_FORMAT}, length: {minimum: REQUIRED_LENGTH}, allow_nil: true
     end
   end
 end
