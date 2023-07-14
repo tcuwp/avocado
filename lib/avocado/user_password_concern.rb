@@ -3,12 +3,11 @@
 require "active_support/concern"
 
 module Avocado
-  module UserConcern
+  module UserPasswordConcern
     extend ActiveSupport::Concern
 
     included do
-      include UserEmailConcern
-      include UserPasswordConcern
+      has_secure_password
     end
   end
 end
