@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
+if ENV.fetch("COVERAGE", false)
+  require "simplecov"
+  SimpleCov.start do
+    load_profile "test_frameworks"
+  end
+end
+
 require "rails/all"
 require "rspec/rails"
 
