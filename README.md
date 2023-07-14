@@ -16,8 +16,7 @@ Without bundler, install the gem by executing:
 
 If you have a `User` model in your application and are nervous about using Rails
 features directly, preferring to consume the features via a packaged gem, you
-can use the Rails `has_secure_password` feature in a more convoluted way, by
-adding the `Avocado::UserConcern` to your `User` model:
+can add the `Avocado::UserConcern` to your `User` model:
 
 ```ruby
 class User < ApplicationRecord
@@ -25,8 +24,15 @@ class User < ApplicationRecord
 end
 ```
 
-Note that behind the scenes this is truly just calling `has_secure_password` for
-you and doing nothing else. It's sort of funny to do this.
+This will do a few things behind the scenes:
+
+- Use the built-in `has_secure_password` to generate relevant password methods
+- Add some basic validations for the `email` and `password` fields on `User`
+- Normalize email values when records are saved
+- Provide a token generator for password recovery
+
+It's sort of funny to do this because you genuinely just could have put this
+stuff right in your app, and yet here we are making gems instead!
 
 ## Development
 
