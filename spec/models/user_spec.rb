@@ -18,7 +18,7 @@ RSpec.describe User do
     describe "Email uniqueness" do
       subject { create(:user) }
 
-      it { is_expected.to validate_uniqueness_of(:email) }
+      it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
     end
 
     describe "Email format" do
@@ -35,6 +35,12 @@ RSpec.describe User do
     describe "Email" do
       it "removes whitespace during save" do
         user = create(:user, email: "  user@host.example   ")
+
+        expect(user.email).to eq("user@host.example")
+      end
+
+      it "downcases during save" do
+        user = create(:user, email: "User@HOSt.exAMPle")
 
         expect(user.email).to eq("user@host.example")
       end
