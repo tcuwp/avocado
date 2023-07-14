@@ -9,3 +9,6 @@
 
 # rspec failure tracking
 .rspec_status
+
+# Generated sqlite3 database
+spec/internal/db/*.sqlite
