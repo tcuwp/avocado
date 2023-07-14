@@ -12,6 +12,9 @@ RSpec.describe User do
   end
 
   describe "Validations" do
+    subject { described_class.create(email: "test@host.example", password: "test") }
+
     it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:email) }
   end
 end
