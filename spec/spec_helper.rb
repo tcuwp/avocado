@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "rails/all"
+require "rspec/rails"
 
 Bundler.require :default, :development
 Combustion.initialize! :all
@@ -15,4 +16,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.use_transactional_fixtures = true
 end
