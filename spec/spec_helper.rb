@@ -7,6 +7,7 @@ if ENV.fetch("COVERAGE", false)
   end
 end
 
+require "factory_bot_rails"
 require "rails/all"
 require "rspec/rails"
 
@@ -29,6 +30,8 @@ RSpec.configure do |config|
   end
 
   config.use_transactional_fixtures = true
+
+  config.include FactoryBot::Syntax::Methods
 end
 
 Shoulda::Matchers.configure do |config|
