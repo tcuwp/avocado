@@ -7,7 +7,7 @@ gemspec
 
 gem "rails", github: "rails/rails"
 gem "rake"
-gem "rspec"
+gem "rspec-rails"
 gem "rubocop-rspec"
 gem "standard-performance"
 gem "standard-rails"
