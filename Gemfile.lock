@@ -98,12 +98,14 @@ PATH
   remote: .
   specs:
     avocado (0.1.0)
+      bcrypt
       rails (~> 7.1.0.alpha)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    bcrypt (3.1.19)
     builder (3.2.4)
     combustion (1.3.7)
       activesupport (>= 3.0.0)
@@ -215,6 +217,7 @@ GEM
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
+    sqlite3 (1.6.3-arm64-darwin)
     standard (1.30.1)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -251,6 +254,7 @@ DEPENDENCIES
   rake
   rspec
   rubocop-rspec
+  sqlite3
   standard
   standard-performance
   standard-rails

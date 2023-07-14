@@ -30,6 +30,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "rails", "~> 7.1.0.alpha"
+  spec.add_runtime_dependency "bcrypt"
 
   spec.add_development_dependency "combustion", "~> 1.3"
+  spec.add_development_dependency "sqlite3"
 end
