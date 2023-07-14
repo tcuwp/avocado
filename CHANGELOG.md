@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Normalize email value during save
 - Validate presence, uniqueness, and format on `email` attribute
 
 ## [0.1.0] - 2023-07-14
