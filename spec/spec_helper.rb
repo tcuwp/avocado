@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require "avocado"
+require "rails/all"
+
+Bundler.require :default, :development
+Combustion.initialize! :all
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
