@@ -11,9 +11,21 @@ RSpec.describe User do
   end
 
   describe "Validations" do
-    subject { create(:user) }
+    describe "Email presence" do
+      it { is_expected.to validate_presence_of(:email) }
+    end
 
-    it { is_expected.to validate_presence_of(:email) }
-    it { is_expected.to validate_uniqueness_of(:email) }
+    describe "Email uniqueness" do
+      subject { create(:user) }
+
+      it { is_expected.to validate_uniqueness_of(:email) }
+    end
+
+    describe "Email format" do
+      it { is_expected.not_to allow_value("host.example").for(:email) }
+      it { is_expected.not_to allow_value("user@").for(:email) }
+      it { is_expected.not_to allow_value("user@host.example@host.example").for(:email) }
+      it { is_expected.to allow_value("user@host.example").for(:email) }
+    end
   end
 end
