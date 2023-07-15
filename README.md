@@ -15,12 +15,12 @@ Without bundler, install the gem by executing:
 ## Usage
 
 If you have a `User` model in your application and are nervous about using Rails
-features directly, preferring to consume the features via a packaged gem, you
-can add the `Avocado::UserConcern` to your `User` model:
+features directly, preferring to consume the features via a packaged gem, add
+the `Avocado::User` to your `User` model:
 
 ```ruby
 class User < ApplicationRecord
-  include Avocado::UserConcern
+  include Avocado::User
 end
 ```
 
