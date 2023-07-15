@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Avocado
-  module UserConcern
+  module User
     extend ActiveSupport::Concern
 
     included do

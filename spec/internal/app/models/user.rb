@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  include Avocado::UserConcern
+  include Avocado::User
 end
