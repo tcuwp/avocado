@@ -6,6 +6,6 @@ module Avocado
   class Error < StandardError; end
 
   autoload :User, "avocado/user"
-  autoload :UserEmailConcern, "avocado/user_email_concern"
-  autoload :UserPasswordConcern, "avocado/user_password_concern"
+  autoload :UserEmail, "avocado/user_email"
+  autoload :UserPassword, "avocado/user_password"
 end
