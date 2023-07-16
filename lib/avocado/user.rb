@@ -7,8 +7,8 @@ module Avocado
     extend ActiveSupport::Concern
 
     included do
-      include UserEmailConcern
-      include UserPasswordConcern
+      include UserEmail
+      include UserPassword
     end
   end
 end

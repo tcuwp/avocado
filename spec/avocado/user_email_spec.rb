@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Avocado::UserEmailConcern, type: :model do
+RSpec.describe Avocado::UserEmail, type: :model do
   subject { User.new }
 
   describe "Validations" do

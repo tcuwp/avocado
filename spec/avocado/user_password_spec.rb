@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Avocado::UserPasswordConcern, type: :model do
+RSpec.describe Avocado::UserPassword, type: :model do
   subject { User.new }
 
   describe "Validations" do
@@ -12,7 +12,7 @@ RSpec.describe Avocado::UserPasswordConcern, type: :model do
     end
 
     describe "Length" do
-      it { is_expected.to validate_length_of(:password).is_at_least(Avocado::UserPasswordConcern::REQUIRED_LENGTH) }
+      it { is_expected.to validate_length_of(:password).is_at_least(Avocado::UserPassword::REQUIRED_LENGTH) }
     end
 
     describe "Presence" do
@@ -43,7 +43,7 @@ RSpec.describe Avocado::UserPasswordConcern, type: :model do
     private
 
     def expiration_time
-      Avocado::UserPasswordConcern::TOKEN_EXPIRATION.from_now + 2.minutes
+      Avocado::UserPassword::TOKEN_EXPIRATION.from_now + 2.minutes
     end
   end
 end

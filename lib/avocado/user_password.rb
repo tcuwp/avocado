@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Avocado
-  module UserPasswordConcern
+  module UserPassword
     extend ActiveSupport::Concern
 
     REQUIRED_FORMAT = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*\z/x
