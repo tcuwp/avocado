@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Avocado::UserPasswordRecovery, type: :model do
-  subject { User.new }
-
+RSpec.describe Avocado::UserPasswordRecovery do
   describe "Recovery" do
     it "Finds the user with a generated signed id" do
       user = create(:user)
