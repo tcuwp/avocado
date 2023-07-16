@@ -9,6 +9,7 @@ module Avocado
     included do
       include UserEmail
       include UserPassword
+      include UserPasswordRecovery
     end
   end
 end

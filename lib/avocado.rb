@@ -8,4 +8,5 @@ module Avocado
   autoload :User, "avocado/user"
   autoload :UserEmail, "avocado/user_email"
   autoload :UserPassword, "avocado/user_password"
+  autoload :UserPasswordRecovery, "avocado/user_password_recovery"
 end
