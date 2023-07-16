@@ -8,6 +8,8 @@ module Avocado
 
     included do
       include UserEmail
+      include UserEmailAffirmation
+      include UserEmailVerification
       include UserPassword
       include UserPasswordRecovery
     end
