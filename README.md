@@ -34,6 +34,12 @@ This will do a few things behind the scenes:
 It's sort of funny to do this because you genuinely just could have put this
 stuff right in your app, and yet here we are making gems instead!
 
+There is an `Avocado::Mailer` which can be included in a mailer class and
+provides some basic mailers.
+
+The `spec/internal` app within this repo has some example usage of both model
+and mailer.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
