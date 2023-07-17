@@ -29,7 +29,8 @@ This will do a few things behind the scenes:
 - Use the built-in `has_secure_password` to generate relevant password methods
 - Add some basic validations for the `email` and `password` fields on `User`
 - Normalize email values when records are saved
-- Provide a token generator for password recovery
+- Provide signed token generators for `password_recovery`, `email_verification`,
+  and `email_affirmation`
 
 It's sort of funny to do this because you genuinely just could have put this
 stuff right in your app, and yet here we are making gems instead!
