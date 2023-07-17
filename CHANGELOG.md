@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add an `Avocado::Mailer` which generates each of the signed ids
+
 ## [0.2.0] - 2023-07-15
 
 - Validate presence, uniqueness, and format on `email` attribute
