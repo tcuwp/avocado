@@ -5,6 +5,7 @@ require_relative "avocado/version"
 module Avocado
   class Error < StandardError; end
 
+  autoload :Mailer, "avocado/mailer"
   autoload :User, "avocado/user"
   autoload :UserEmail, "avocado/user_email"
   autoload :UserEmailAffirmation, "avocado/user_email_affirmation"
