@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe "Registration" do
   before do
     driven_by(:rack_test)
