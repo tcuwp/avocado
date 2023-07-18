@@ -1,5 +1,7 @@
 Sign up for a new account
 
+<%= link_to "Sign in to an existing account", new_session_path %>
+
 <%= form_with model: @user, url: registrations_path do |form| %>
   <div>
     <%= form.label :email %>

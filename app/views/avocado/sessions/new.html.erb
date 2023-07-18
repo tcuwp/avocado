@@ -1,0 +1,11 @@
+Sign in to your account
+
+<%= link_to "sign up for a new account", new_registration_path %>
+
+<%= form_with model: @session do |form| %>
+  <%= form.label :email %>
+  <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+  <%= form.label :password %>
+  <%= form.password_field :password, autocomplete: "current-password", required: true %>
+  <%= form.button "Sign in", name: nil %>
+<% end -%>
