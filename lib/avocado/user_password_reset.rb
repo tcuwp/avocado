@@ -3,13 +3,13 @@
 require "active_support/concern"
 
 module Avocado
-  module UserPasswordRecovery
+  module UserPasswordReset
     extend ActiveSupport::Concern
 
     TOKEN_EXPIRATION = 64.minutes
 
     included do
-      generates_token_for :password_recovery, expires_in: TOKEN_EXPIRATION do
+      generates_token_for :password_reset, expires_in: TOKEN_EXPIRATION do
         password_digest_salt
       end
     end

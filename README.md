@@ -29,7 +29,7 @@ This will do a few things behind the scenes:
 - Use the built-in `has_secure_password` to generate relevant password methods
 - Add some basic validations for the `email` and `password` fields on `User`
 - Normalize email values when records are saved
-- Provide signed token generators for `password_recovery`, `email_verification`,
+- Provide signed token generators for `password_reset`, `email_verification`,
   and `email_affirmation`
 
 It's sort of funny to do this because you genuinely just could have put this

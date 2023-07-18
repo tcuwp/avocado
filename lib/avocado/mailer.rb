@@ -21,7 +21,7 @@ module Avocado
       mail
     end
 
-    def password_recovery
+    def password_reset
       mail
     end
 
