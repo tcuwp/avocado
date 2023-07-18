@@ -97,7 +97,7 @@ GIT
 PATH
   remote: .
   specs:
-    avocado (0.2.0)
+    avocado (0.3.0)
       bcrypt
       rails (~> 7.1.0.alpha)
 
