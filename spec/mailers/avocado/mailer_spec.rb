@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe UserMailer do
+RSpec.describe Avocado::Mailer do
   describe "Password reset" do
     it "creates an email" do
       user = create(:user)

@@ -1,17 +1,11 @@
 # frozen_string_literal: true
 
-require "active_support/concern"
-
 module Avocado
-  module Mailer
-    extend ActiveSupport::Concern
+  class Mailer < ApplicationMailer
+    before_action :set_user
+    before_action :set_signed_id
 
-    included do
-      before_action :set_user
-      before_action :set_signed_id
-
-      default to: -> { @user.email }
-    end
+    default to: -> { @user.email }
 
     def email_affirmation
       mail
