@@ -7,12 +7,13 @@ if ENV.fetch("COVERAGE", false)
   end
 end
 
-require "factory_bot_rails"
 require "rails/all"
-require "rspec/rails"
 
 Bundler.require :default, :development
 Combustion.initialize! :all
+
+require "factory_bot_rails"
+require "rspec/rails"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |file| require file }
 
