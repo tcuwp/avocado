@@ -1,0 +1,5 @@
+<% flash.to_hash.slice("alert", "error", "notice", "success").each do |key, value| -%>
+  <div class="flash-<%= key %>">
+    <%= value %>
+  </div>
+<% end -%>
