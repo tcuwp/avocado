@@ -1,15 +1,15 @@
 require "spec_helper"
 
 RSpec.describe UserMailer do
-  describe "Password recovery" do
+  describe "Password reset" do
     it "creates an email" do
       user = create(:user)
-      mail = described_class.with(user: user).password_recovery
+      mail = described_class.with(user: user).password_reset
 
-      expect(mail.subject).to match(/Password recovery/)
+      expect(mail.subject).to match(/Password reset/)
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["no-reply@host.example"])
-      expect(mail.body.encoded).to match(/Password recovery email/)
+      expect(mail.body.encoded).to match(/Password reset email/)
     end
   end
 

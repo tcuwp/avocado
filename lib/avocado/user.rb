@@ -11,7 +11,7 @@ module Avocado
       include UserEmailAffirmation
       include UserEmailVerification
       include UserPassword
-      include UserPasswordRecovery
+      include UserPasswordReset
     end
   end
 end

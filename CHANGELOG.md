@@ -1,6 +1,7 @@
 ## [Unreleased]
 
 - Add an `Avocado::Mailer` which generates each of the signed ids
+- Rename `password_recovery` to `password_reset`
 
 ## [0.2.0] - 2023-07-15
 
