@@ -10,9 +10,12 @@ end
 require "rails/all"
 
 Bundler.require :default, :development
-Combustion.initialize! :all
+Combustion.initialize! :all do
+  config.load_defaults 7.1
+end
 
 require "factory_bot_rails"
+require "capybara/rails"
 require "rspec/rails"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |file| require file }
