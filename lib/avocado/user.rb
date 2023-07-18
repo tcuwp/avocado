@@ -12,6 +12,8 @@ module Avocado
       include UserEmailVerification
       include UserPassword
       include UserPasswordReset
+
+      has_many :sessions
     end
   end
 end
