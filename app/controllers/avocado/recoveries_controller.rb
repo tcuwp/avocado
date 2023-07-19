@@ -57,8 +57,7 @@ module Avocado
     end
 
     def send_password_reset_email
-      Avocado::Mailer
-        .with(user: user_from_params_email)
+      mailer_for(user_from_params_email)
         .password_reset
         .deliver_later
     end
