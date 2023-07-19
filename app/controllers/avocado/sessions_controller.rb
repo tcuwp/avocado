@@ -28,7 +28,7 @@ module Avocado
 
     def destroy
       @session.destroy
-      redirect_to(sessions_path, notice: "Session destroyed")
+      redirect_to sessions_path, notice: "Session destroyed"
     end
 
     private
