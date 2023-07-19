@@ -11,8 +11,6 @@ module Avocado
   autoload :Session, "avocado/session"
   autoload :User, "avocado/user"
   autoload :UserEmail, "avocado/user_email"
-  autoload :UserEmailAffirmation, "avocado/user_email_affirmation"
-  autoload :UserEmailVerification, "avocado/user_email_verification"
+  autoload :UserTokens, "avocado/user_tokens"
   autoload :UserPassword, "avocado/user_password"
-  autoload :UserPasswordReset, "avocado/user_password_reset"
 end

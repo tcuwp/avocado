@@ -6,10 +6,8 @@ module Avocado
 
     included do
       include UserEmail
-      include UserEmailAffirmation
-      include UserEmailVerification
+      include UserTokens
       include UserPassword
-      include UserPasswordReset
 
       has_many :sessions
 
