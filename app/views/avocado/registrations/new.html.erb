@@ -1,6 +1,10 @@
-Sign up for a new account
+<h2>
+  Sign up for a new account
+</h2>
 
-<%= link_to "Sign in to an existing account", new_session_path %>
+<p>
+  <%= link_to "Sign in to an existing account", new_session_path %>
+</p>
 
 <%= form_with model: @user, url: registrations_path do |form| %>
   <div>

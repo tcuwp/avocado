@@ -1,6 +1,10 @@
-Sign in to your account
+<h2>
+  Sign in to your account
+</h2>
 
-<%= link_to "sign up for a new account", new_registration_path %>
+<p>
+  <%= link_to "sign up for a new account", new_registration_path %>
+</p>
 
 <%= form_with model: @session do |form| %>
   <%= form.label :email %>
