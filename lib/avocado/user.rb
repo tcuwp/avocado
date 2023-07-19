@@ -13,6 +13,7 @@ module Avocado
 
       has_many :sessions
 
+      scope :newest_first, -> { order(created_at: :desc) }
       scope :verified, -> { where(verified: true) }
     end
   end
