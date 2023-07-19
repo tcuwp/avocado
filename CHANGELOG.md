@@ -3,6 +3,7 @@
 - Convert the `Avocado::Mailer` module into a class
 - Add `Avocado::RegistrationsController` for signing up
 - Add `Avocado::SessionsController` for signing in
+- Add `Avocadi::RecoveriesController` for password reset
 
 ## [0.3.0] - 2023-07-17
 

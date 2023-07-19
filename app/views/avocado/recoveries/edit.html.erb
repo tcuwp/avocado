@@ -1,0 +1,19 @@
+<h2>
+  Reset your password
+</h2>
+
+<p>
+  <%= link_to "Sign in to your account" %>
+</p>
+
+<%= form_with model: @user, url: recovery_path, method: :patch do |form| %>
+  <%= form.hidden_field :sid, name: :sid, value: params[:sid] %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password, autocomplete: "new-password", required: true %>
+
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+
+  <%= form.button "Update password", name: nil %>
+<% end %>
