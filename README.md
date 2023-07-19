@@ -18,7 +18,7 @@ As a prerequisite, you should have a database schema with columns that match the
 users and sessions tables from [the demo app schema]. It's ok to have more
 columns, but you need at least what is shown there.
 
-With that set, add some modules:
+With that set, include the modules into your classes:
 
 ```ruby
 class User < ApplicationRecord
@@ -36,10 +36,10 @@ end
 
 This will enable a few things:
 
-- The models will get relevant validations/associations/normalizations
-- The Rails built-in `has_secure_password` is set up within `User`
-- An `Avocado::Mailer` with signed token generators for each action
-- Controllers to sign up and sign in
+- Models will get validations, associations, and normalizations
+- Rails built-in `has_secure_password` is called within `User`
+- A mailer with signed token generators is created
+- Controllers for sign up and sign in are created and routed
 
 The `spec/internal` app within this repo has some example usage.
 
