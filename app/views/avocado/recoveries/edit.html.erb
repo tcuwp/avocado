@@ -6,9 +6,7 @@
   <%= link_to "Sign in to your account" %>
 </p>
 
-<%= form_with model: @user, url: recovery_path, method: :patch do |form| %>
-  <%= form.hidden_field :sid, name: :sid, value: params[:sid] %>
-
+<%= form_with model: @user, url: recovery_path(id: params[:id]), method: :patch do |form| %>
   <%= form.label :password %>
   <%= form.password_field :password, autocomplete: "new-password", required: true %>
 

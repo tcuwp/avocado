@@ -27,9 +27,9 @@ RSpec.describe "Recoveries" do
   describe "Changing a user password" do
     it "updates the password" do
       user = create(:user, verified: true)
-      user_sid = user.generate_token_for(:password_reset)
+      user_signed_id = user.generate_token_for(:password_reset)
 
-      visit edit_recovery_path(sid: user_sid)
+      visit edit_recovery_path(id: user_signed_id)
       fill_in "Password", with: "Password.New.123"
       fill_in "Password confirmation", with: "Password.New.123"
       click_on "Update password"
@@ -39,9 +39,9 @@ RSpec.describe "Recoveries" do
 
     it "fails with non matching password" do
       user = create(:user, verified: true)
-      user_sid = user.generate_token_for(:password_reset)
+      user_signed_id = user.generate_token_for(:password_reset)
 
-      visit edit_recovery_path(sid: user_sid)
+      visit edit_recovery_path(id: user_signed_id)
       fill_in "Password", with: "Password.New.123"
       fill_in "Password confirmation", with: "Password.Wrong"
       click_on "Update password"
@@ -50,7 +50,7 @@ RSpec.describe "Recoveries" do
     end
 
     it "fails with bad link" do
-      visit edit_recovery_path(sid: "fake")
+      visit edit_recovery_path(id: "fake")
 
       expect(page).to have_content(/link is invalid/)
     end
