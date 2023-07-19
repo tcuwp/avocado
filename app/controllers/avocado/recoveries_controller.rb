@@ -2,7 +2,7 @@
 
 module Avocado
   class RecoveriesController < BaseController
-    PERMITTED_PARAMS = [:password, :password_confirmation]
+    PERMITTED_PARAMS = %i[password password_confirmation]
 
     skip_before_action :authenticate
 

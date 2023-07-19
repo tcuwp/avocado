@@ -2,7 +2,7 @@
 
 module Avocado
   class RegistrationsController < BaseController
-    PERMITTED_PARAMS = [:email, :password, :password_confirmation]
+    PERMITTED_PARAMS = %i[email password password_confirmation]
 
     skip_before_action :authenticate
 

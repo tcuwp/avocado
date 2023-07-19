@@ -2,9 +2,9 @@
 
 module Avocado
   class SessionsController < BaseController
-    PERMITTED_PARAMS = [:email, :password]
+    PERMITTED_PARAMS = %i[email password]
 
-    skip_before_action :authenticate, only: [:new, :create]
+    skip_before_action :authenticate, only: %i[new create]
 
     with_options only: :create do
       before_action :verify_authentication_attempt
