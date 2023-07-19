@@ -4,13 +4,9 @@ A collection of authentication tools for use in [Rails] 7.1+ applications.
 
 ## Installation
 
-With bundler, add to the application's Gemfile by executing:
+Add to the application's Gemfile by executing:
 
     $ bundle add avocado
-
-Without bundler, install the gem by executing:
-
-    $ gem install avocado
 
 ## Usage
 
@@ -19,8 +15,8 @@ such features via a packaged gem, you can include some Avocado modules into your
 application to get authentication functionality.
 
 As a prerequisite, you should have a database schema with columns that match the
-users and sessions tables from the schema in the demo spec app. It's ok to have
-more columns, but you need at least what is shown there.
+users and sessions tables from [the demo app schema]. It's ok to have more
+columns, but you need at least what is shown there.
 
 With that set, add some modules:
 
@@ -64,3 +60,4 @@ The gem is available as open source under the terms of the [MIT License].
 [GitHub]: https://github.com/tcuwp/avocado
 [MIT License]: https://opensource.org/licenses/MIT
 [Rails]: https://github.com/rails/rails
+[the demo app schema]: https://github.com/tcuwp/avocado/blob/main/spec/internal/db/schema.rb
