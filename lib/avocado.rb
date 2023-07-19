@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "avocado/version"
 require_relative "avocado/engine"
 
 module Avocado
