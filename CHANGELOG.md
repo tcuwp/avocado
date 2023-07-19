@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.4.0] - 2023-07-19
+
 - Convert the `Avocado::Mailer` module into a class
 - Add controllers for signing up, signing in, password reset and email
   verification
