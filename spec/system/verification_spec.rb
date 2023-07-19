@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "Verification" do
-  def sign_in(user)
-    visit new_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Sign in"
-  end
-
   describe "Requesting a verification email" do
     it "sends the email_verification email" do
       user = create(:user)
