@@ -22,7 +22,7 @@ module Avocado
 
     def update
       if @user.update(user_params)
-        redirect_to(new_session_path, notice: "Password reset successfully. Please sign in.")
+        redirect_to new_session_path, notice: "Password reset successfully. Please sign in."
       else
         render :edit, status: :unprocessable_entity
       end
