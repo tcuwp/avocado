@@ -12,6 +12,8 @@ module Avocado
       include UserPasswordReset
 
       has_many :sessions
+
+      scope :verified, -> { where(verified: true) }
     end
   end
 end
