@@ -19,5 +19,14 @@ RSpec.describe User do
         expect(described_class.verified).to eq [verified_user]
       end
     end
+
+    describe ".newest_first" do
+      it "orders records by created_at desc" do
+        newer = create(:user, created_at: 1.days.ago)
+        older = create(:user, created_at: 3.days.ago)
+
+        expect(described_class.newest_first).to eq [newer, older]
+      end
+    end
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe Session do
         newer = create(:session, created_at: 1.days.ago)
         older = create(:session, created_at: 3.days.ago)
 
-        expect(described_class.newest_first.to_a).to eq [newer, older]
+        expect(described_class.newest_first).to eq [newer, older]
       end
     end
   end
