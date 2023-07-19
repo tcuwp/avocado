@@ -8,6 +8,8 @@ module Avocado
 
     included do
       belongs_to :user
+
+      scope :newest_first, -> { order(created_at: :desc) }
     end
   end
 end
