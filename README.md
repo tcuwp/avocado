@@ -39,7 +39,8 @@ This will enable a few things:
 - Models will get validations, associations, and normalizations
 - Rails built-in `has_secure_password` is called within `User`
 - A mailer with signed token generators is created
-- Controllers/Routes created for sign up, sign in, password reset, etc
+- Controllers and Routes for sign up, sign in, password reset, email
+  verification, etc
 
 The `spec/internal` app within this repo has some example usage.
 

@@ -1,0 +1,8 @@
+<h2>Email verification</h2>
+
+<% if current_user.verified? %>
+  <p>Your email is verified.</p>
+<% else %>
+  <p>Your email is not verified.</p>
+  <p><%= button_to "Re-send verification email", verifications_path %></p>
+<% end %>
