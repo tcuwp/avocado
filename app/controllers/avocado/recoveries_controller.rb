@@ -37,7 +37,7 @@ module Avocado
     end
 
     def user_from_signed_password_reset_token
-      ::User.find_by_token_for!(:password_reset, params[:sid])
+      ::User.find_by_token_for!(:password_reset, params[:id])
     end
 
     def verify_user

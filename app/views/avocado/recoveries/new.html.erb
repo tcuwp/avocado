@@ -4,7 +4,7 @@
 <p>
   <%= link_to "Sign in to your account", new_session_path %>
 </p>
-<%= form_with url: recovery_path do |form| %>
+<%= form_with url: recoveries_path do |form| %>
   <%= form.label :email %>
   <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
 
