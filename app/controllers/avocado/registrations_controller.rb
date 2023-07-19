@@ -32,8 +32,7 @@ module Avocado
     end
 
     def send_email_verification
-      Avocado::Mailer
-        .with(user: @user)
+      mailer_for(@user)
         .email_verification
         .deliver_later
     end
