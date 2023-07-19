@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "Registration" do
-  before do
-    driven_by(:rack_test)
-  end
-
   describe "Registration page" do
     it "shows a sign up form" do
       visit new_registration_path
