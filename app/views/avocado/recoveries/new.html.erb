@@ -1,0 +1,12 @@
+<h2>
+  Recover your password
+</h2>
+<p>
+  <%= link_to "Sign in to your account", new_session_path %>
+</p>
+<%= form_with url: recovery_path do |form| %>
+  <%= form.label :email %>
+  <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+
+  <%= form.button "Recover", name: nil %>
+<% end -%>
