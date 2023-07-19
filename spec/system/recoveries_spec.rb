@@ -10,6 +10,7 @@ RSpec.describe "Recoveries" do
       click_on "Recover"
 
       expect(page).to have_content(/Check your email/)
+      expect(Avocado::Mailer.deliveries.size).to eq(1)
     end
 
     it "does not send for a non-verified user" do
@@ -21,6 +22,7 @@ RSpec.describe "Recoveries" do
       click_on "Recover"
 
       expect(page).to have_content(/Verify email first/)
+      expect(Avocado::Mailer.deliveries.size).to eq(0)
     end
   end
 
