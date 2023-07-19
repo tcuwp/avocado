@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "Verification" do
-  before do
-    driven_by(:rack_test)
-  end
-
   def sign_in(user)
     visit new_session_path
     fill_in "Email", with: user.email

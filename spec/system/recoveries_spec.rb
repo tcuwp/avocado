@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "Recoveries" do
-  before do
-    driven_by(:rack_test)
-  end
-
   describe "Sending a password reset email" do
     it "sends the reset email" do
       user = create(:user, verified: true)

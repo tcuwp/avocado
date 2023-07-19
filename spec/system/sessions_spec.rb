@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe "Sessions" do
-  before do
-    driven_by(:rack_test)
-  end
-
   describe "Sign in page" do
     it "shows a sign in form" do
       visit new_session_path
