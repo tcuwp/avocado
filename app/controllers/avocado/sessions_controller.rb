@@ -10,6 +10,12 @@ module Avocado
       before_action :verify_authentication_attempt
     end
 
+    before_action :set_session, only: :destroy
+
+    def index
+      @sessions = current_user.sessions.newest_first
+    end
+
     def new
       @session = ::Session.new
     end
@@ -17,7 +23,12 @@ module Avocado
     def create
       sign_in(authenticated_user)
 
-      redirect_to root_path, notice: "Signed in successfully"
+      redirect_to root_path, notice: "Session created"
+    end
+
+    def destroy
+      @session.destroy
+      redirect_to(sessions_path, notice: "Session destroyed")
     end
 
     private
@@ -35,8 +46,12 @@ module Avocado
 
     def verify_authentication_attempt
       if authenticated_user.blank?
-        redirect_to new_session_path, alert: "That email or password is incorrect"
+        redirect_to new_session_path, alert: "Authentication failed"
       end
+    end
+
+    def set_session
+      @session = current_user.sessions.find(params[:id])
     end
   end
 end
