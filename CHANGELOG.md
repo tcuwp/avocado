@@ -1,6 +1,8 @@
 ## [Unreleased]
 
 - Convert the `Avocado::Mailer` module into a class
+- Add `Avocado::RegistrationsController` for signing up
+- Add `Avocado::SessionsController` for signing in
 
 ## [0.3.0] - 2023-07-17
 
