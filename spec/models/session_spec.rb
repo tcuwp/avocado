@@ -14,6 +14,10 @@ RSpec.describe Session do
 
   describe "Callbacks" do
     describe "Request logging" do
+      after do
+        Avocado::Current.reset_all
+      end
+
       it "does not set values when not present" do
         session = create(:session)
 
