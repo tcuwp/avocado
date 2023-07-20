@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 ActiveRecord::Schema.define do
+  create_table "events", force: true do |t|
+    t.bigint "user_id", null: false
+    t.string "action", null: false
+    t.string "user_agent"
+    t.string "ip_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
   create_table "sessions", force: true do |t|
     t.bigint "user_id", null: false
     t.string "user_agent"
