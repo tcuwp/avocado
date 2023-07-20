@@ -1,0 +1,14 @@
+<h2>
+  Sign in without password
+</h2>
+
+<p>
+  <%= link_to "Reset your password", new_recovery_path %>
+</p>
+
+<%= form_with url: affirmations_path do |form| %>
+  <%= form.label :email %>
+  <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+
+  <%= form.button "Sign in", name: nil %>
+<% end -%>

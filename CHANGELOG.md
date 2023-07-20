@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Add controller for "passwordless" email-link sign-in
+
 ## [0.4.0] - 2023-07-19
 
 - Convert the `Avocado::Mailer` module into a class
