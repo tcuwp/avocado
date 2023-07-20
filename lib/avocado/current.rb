@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-class Current < ActiveSupport::CurrentAttributes
-  attribute :session,
-    :user,
-    :user_agent,
-    :ip_address
+module Avocado
+  class Current < ActiveSupport::CurrentAttributes
+    attribute :session,
+      :user,
+      :user_agent,
+      :ip_address
 
-  def session=(session)
-    super
-    self.user = session.user
+    def session=(session)
+      super
+      self.user = session.user
+    end
   end
 end
