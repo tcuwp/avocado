@@ -29,4 +29,46 @@ RSpec.describe User do
       end
     end
   end
+
+  describe "Normalizations" do
+    describe "Whitespace" do
+      it "Strips value during save" do
+        user = create(:user, email: "  user@host.example   ")
+
+        expect(user.email).to eq("user@host.example")
+      end
+    end
+
+    describe "Mixed casing" do
+      it "Downcases during save" do
+        user = create(:user, email: "User@HOSt.exAMPle")
+
+        expect(user.email).to eq("user@host.example")
+      end
+    end
+  end
+
+  describe "Validations" do
+    describe "Password" do
+      it { is_expected.not_to allow_value("!@#$%^&*").for(:password) }
+      it { is_expected.not_to allow_value("12341234").for(:password) }
+      it { is_expected.not_to allow_value("TestTest").for(:password) }
+      it { is_expected.to allow_value("Test.1234").for(:password) }
+      it { is_expected.to validate_length_of(:password).is_at_least(Avocado::UserValidations::PASSWORD_MINIMUM_LENGTH) }
+      it { is_expected.to validate_presence_of(:password) }
+    end
+
+    describe "Email" do
+      subject { create(:user) }
+
+      it { is_expected.not_to allow_value("host.example").for(:email) }
+      it { is_expected.not_to allow_value("user@").for(:email) }
+      it { is_expected.not_to allow_value("user@host.example@host.example").for(:email) }
+      it { is_expected.to allow_value("user@host.example").for(:email) }
+      it { is_expected.to allow_value("user@multiple.names.host.example").for(:email) }
+      it { is_expected.to allow_value("user+scope@host.example").for(:email) }
+      it { is_expected.to validate_presence_of(:email) }
+      it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
+    end
+  end
 end

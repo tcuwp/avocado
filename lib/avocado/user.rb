@@ -5,14 +5,17 @@ module Avocado
     extend ActiveSupport::Concern
 
     included do
-      include UserEmail
       include UserTokens
-      include UserPassword
+      include UserValidations
+
+      has_secure_password
 
       has_many :sessions
 
       scope :newest_first, -> { order(created_at: :desc) }
       scope :verified, -> { where(verified: true) }
+
+      normalizes :email, with: ->(email) { email.downcase.strip }
     end
   end
 end
