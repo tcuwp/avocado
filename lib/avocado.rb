@@ -7,6 +7,7 @@ module Avocado
 
   autoload :Authentication, "avocado/authentication"
   autoload :Current, "avocado/current"
+  autoload :Event, "avocado/event"
   autoload :Mailer, "avocado/mailer"
   autoload :Session, "avocado/session"
   autoload :User, "avocado/user"

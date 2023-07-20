@@ -29,6 +29,10 @@ class Session < ApplicationRecord
   include Avocado::Session
 end
 
+class Event < ApplicationRecord
+  include Avocado::Event
+end
+
 class ApplicationController < ActionController::Base
   include Avocado::Authentication
 end

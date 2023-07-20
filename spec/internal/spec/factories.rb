@@ -3,6 +3,11 @@
 FactoryBot.define do
   sequence(:email) { |n| "name#{n}@host.example" }
 
+  factory :event do
+    user
+    action { "session:create" }
+  end
+
   factory :session do
     user
   end
