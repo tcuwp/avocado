@@ -13,6 +13,24 @@ RSpec.describe Session do
   end
 
   describe "Callbacks" do
+    describe "Request logging" do
+      it "does not set values when not present" do
+        session = create(:session)
+
+        expect(session.user_agent).to be_nil
+        expect(session.ip_address).to be_nil
+      end
+
+      it "sets values when present" do
+        Avocado::Current.ip_address = "192.168.1.1"
+        Avocado::Current.user_agent = "Mozilla 1.0"
+
+        session = create(:session)
+        expect(session.user_agent).to eq("Mozilla 1.0")
+        expect(session.ip_address).to eq("192.168.1.1")
+      end
+    end
+
     describe "Session creation" do
       it "logs action in a user event" do
         user = create(:user)
