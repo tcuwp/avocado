@@ -11,4 +11,25 @@ RSpec.describe Session do
       end
     end
   end
+
+  describe "Callbacks" do
+    describe "Session creation" do
+      it "logs action in a user event" do
+        user = create(:user)
+
+        expect { create(:session, user: user) }.to change(user.events, :count).by(1)
+        expect(user.events.last.action).to eq("session:create")
+      end
+    end
+
+    describe "Session destruction" do
+      it "logs action in a user event" do
+        user = create(:user)
+        session = create(:session, user: user)
+
+        expect { session.destroy }.to change(user.events, :count).by(1)
+        expect(user.events.last.action).to eq("session:destroy")
+      end
+    end
+  end
 end
