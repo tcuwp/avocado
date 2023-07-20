@@ -10,7 +10,10 @@ module Avocado
 
       has_secure_password
 
-      has_many :sessions
+      with_options dependent: :destroy do
+        has_many :events
+        has_many :sessions
+      end
 
       scope :newest_first, -> { order(created_at: :desc) }
       scope :verified, -> { where(verified: true) }

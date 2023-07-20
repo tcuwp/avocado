@@ -10,6 +10,11 @@ RSpec.describe User do
     end
   end
 
+  describe "Associations" do
+    it { is_expected.to have_many(:events).dependent(:destroy) }
+    it { is_expected.to have_many(:sessions).dependent(:destroy) }
+  end
+
   describe "Scopes" do
     describe ".verified" do
       it "returns only verified users" do
