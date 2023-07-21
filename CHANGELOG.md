@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Change affirmations and verifications to require user action
+
 ## [0.5.0] - 2023-07-21
 
 - Add controller for "passwordless" email-link sign-in

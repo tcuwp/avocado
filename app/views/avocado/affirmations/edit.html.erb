@@ -1,0 +1,7 @@
+<h2>
+  Sign in without password
+</h2>
+
+<%= form_with url: affirmation_path(id: params[:id]), method: :patch do |form| %>
+  <%= form.button "Submit", name: nil %>
+<% end -%>

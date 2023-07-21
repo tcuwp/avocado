@@ -1,0 +1,7 @@
+<h2>
+  Verify your email
+</h2>
+
+<%= form_with url: verification_path(id: params[:id]), method: :patch do |form| %>
+  <%= form.button "Submit", name: nil %>
+<% end -%>

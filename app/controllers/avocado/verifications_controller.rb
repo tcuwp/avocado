@@ -2,12 +2,15 @@
 
 module Avocado
   class VerificationsController < BaseController
-    with_options only: :show do
+    with_options only: %i[edit update] do
       skip_before_action :authenticate
       before_action :set_user
     end
 
-    def show
+    def edit
+    end
+
+    def update
       @user.update! verified: true
       redirect_to root_path, notice: "Email address verified."
     end
