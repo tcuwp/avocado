@@ -10,6 +10,7 @@ module Avocado
   autoload :Event, "avocado/event"
   autoload :Mailer, "avocado/mailer"
   autoload :Session, "avocado/session"
+  autoload :SessionCallbacks, "avocado/session_callbacks"
   autoload :User, "avocado/user"
   autoload :UserCallbacks, "avocado/user_callbacks"
   autoload :UserTokens, "avocado/user_tokens"
