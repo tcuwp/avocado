@@ -85,6 +85,19 @@ RSpec.describe User do
         expect { user.update(password: "New.Pass.123", password_confirmation: "New.Pass.123") }.to change(user.events, :count).by(1)
         expect(user.events.last.action).to eq("password:update")
       end
+
+      it "destroys non current sessions" do
+        user = create(:user)
+        desktop_session = create(:session, user: user)
+        tablet_session = create(:session, user: user)
+        phone_session = create(:session, user: user)
+
+        Avocado::Current.session = phone_session
+
+        expect { user.update(password: "New.Pass.123", password_confirmation: "New.Pass.123") }.to change(user.sessions, :count).from(3).to(1)
+        expect { desktop_session.reload }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { tablet_session.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
 
     describe "Email changes" do

@@ -20,6 +20,7 @@ module Avocado
 
       normalizes :email, with: ->(email) { email.downcase.strip }
 
+      after_update :destroy_non_current_sessions, if: :password_digest_previously_changed?
       after_update :record_activity_email_update, if: :email_previously_changed?
       after_update :record_activity_email_verified, if: %i[verified_previously_changed? verified?]
       after_update :record_activity_password_update, if: :password_digest_previously_changed?
@@ -43,6 +44,10 @@ module Avocado
 
     def remove_email_verification
       self.verified = false
+    end
+
+    def destroy_non_current_sessions
+      sessions.where.not(id: Current.session).destroy_all
     end
   end
 end
