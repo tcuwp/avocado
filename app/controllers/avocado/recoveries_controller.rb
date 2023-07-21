@@ -12,12 +12,12 @@ module Avocado
     def new
     end
 
-    def edit
-    end
-
     def create
       send_password_reset_email
       redirect_to new_session_path, notice: "Check your email for reset instructions."
+    end
+
+    def edit
     end
 
     def update
