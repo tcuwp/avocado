@@ -10,6 +10,28 @@ RSpec.describe Session do
         expect(described_class.newest_first).to eq [newer, older]
       end
     end
+
+    describe ".non_current" do
+      after do
+        Avocado::Current.reset_all
+      end
+
+      it "finds non current records when current is set" do
+        mobile_session = create(:session)
+        tablet_session = create(:session)
+
+        Avocado::Current.session = mobile_session
+
+        expect(described_class.non_current).to eq [tablet_session]
+      end
+
+      it "finds all records when current not set" do
+        mobile_session = create(:session)
+        tablet_session = create(:session)
+
+        expect(described_class.non_current).to eq [mobile_session, tablet_session]
+      end
+    end
   end
 
   describe "Callbacks" do

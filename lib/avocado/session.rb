@@ -8,6 +8,7 @@ module Avocado
       belongs_to :user
 
       scope :newest_first, -> { order(created_at: :desc) }
+      scope :non_current, -> { where.not(id: Current.session) }
 
       after_create :record_activity_create
 

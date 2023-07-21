@@ -47,7 +47,7 @@ module Avocado
     end
 
     def destroy_non_current_sessions
-      sessions.where.not(id: Current.session).destroy_all
+      sessions.non_current.destroy_all
     end
   end
 end
