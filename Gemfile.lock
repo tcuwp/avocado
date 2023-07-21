@@ -98,7 +98,7 @@ PATH
   remote: .
   specs:
     avocado (0.5.0)
-      bcrypt
+      bcrypt (~> 3.1)
       rails (~> 7.1.0.alpha)
 
 GEM

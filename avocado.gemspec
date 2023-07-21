@@ -29,9 +29,6 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "bcrypt"
+  spec.add_dependency "bcrypt", "~> 3.1"
   spec.add_dependency "rails", "~> 7.1.0.alpha"
-
-  spec.add_development_dependency "combustion", "~> 1.3"
-  spec.add_development_dependency "sqlite3"
 end
