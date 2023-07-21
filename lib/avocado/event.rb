@@ -6,6 +6,7 @@ module Avocado
 
     VALID_ACTIONS = [
       "email:update",
+      "email:verified",
       "password:update",
       "session:create",
       "session:destroy"

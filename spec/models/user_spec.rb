@@ -101,5 +101,14 @@ RSpec.describe User do
         expect(user.events.last.action).to eq("email:update")
       end
     end
+
+    describe "Verified changes" do
+      it "logs action in a user event" do
+        user = create(:user, verified: false)
+
+        expect { user.update(verified: true) }.to change(user.events, :count).by(1)
+        expect(user.events.last.action).to eq("email:verified")
+      end
+    end
   end
 end
