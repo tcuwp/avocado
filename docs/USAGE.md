@@ -8,8 +8,8 @@ overridden for special cases beyond the basics.
 ## Requirements
 
 You must be running Rails 7.1 or newer within your application. The gem uses
-some Rails features (`authenticate_by`, `has_secure_password`, `normalizes`,
-etc) which don't exist in earlier versions.
+some Rails features (`authenticate_by`, `has_secure_password`,
+`generates_token_for`, `normalizes`, etc) which don't exist in earlier versions.
 
 You should have a database schema with columns that match the `users`,
 `sessions`, and `events` tables from the [demo app schema]. It's ok to have more
@@ -41,10 +41,10 @@ class Event < ApplicationRecord
 end
 ```
 
-This will set up some basic validations, association, normalizations, and
+This will set up some basic validations, associations, normalizations, and
 callbacks for those models.
 
-You also need to add a module to your top level controller:
+You also need to add a module to your top-level controller:
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -56,17 +56,25 @@ end
 
 ### Routable controller features
 
-The gem will create routes that go to the controllers during app initialization.
-With the routes created and all code loaded, these controller/route features
-exist:
+The gem will create RESTful routes that go to the various controllers during app
+initialization. By default, these external (unauthenticated) features are
+available:
 
-- `Registrations` -- Create new user records
-- `Sessions` -- Sign in & out, list & destroy active sessions
-- `Passwords` and `Emails` -- Account edit pages
-- `Recoveries` -- Enable password reset process
-- `Verifications` -- Enable email address verification process
-- `Affirmations` -- Enable "passwordless" auth via secure link
-- `Events` -- List view of user activity history
+- `Registrations` -- Fill out new form and create users
+- `Sessions` -- Sign in and sign out features
+- `Recoveries` -- Trigger password reset, click link, confirm
+- `Verifications` -- Email confirmation on account creation or email change
+- `Affirmations` -- Provides a "passwordless" auth via emailed link
+
+These internal (authenticated) features are available:
+
+- `Sessions` -- List active sessions, click to destroy untrusted ones
+- `Events` -- List view of user activity audit log
+- `Passwords` -- Edit and update user password
+- `Emails` -- Edit and update user email
+
+Linking to any of these internal pages is optional. You can use them as-is,
+override their views, or even ignore them entirely and make your own versions.
 
 ### Mailers
 
