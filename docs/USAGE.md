@@ -54,8 +54,9 @@ end
 
 ## Summary
 
-The gem will create routes that go to the controllers during app initialization.
+### Routable controller features
 
+The gem will create routes that go to the controllers during app initialization.
 With the routes created and all code loaded, these controller/route features
 exist:
 
@@ -67,7 +68,30 @@ exist:
 - `Affirmations` -- Enable "passwordless" auth via secure link
 - `Events` -- List view of user activity history
 
-There is an `Avocado::Mailer` which gets called to send emails.
+### Mailers
+
+There is an `Avocado::Mailer` which gets called to send emails. The mailer views
+here are very basic, and should be overriden within applications. You can place
+views within `app/views/avocado/mailer/` to make this happen.
+
+### Before actions
+
+There is an `authenticate` method installed as a default `before_action`. Any
+actions which do not need to be authenticated should disable this.
+
+There is a `set_current_request_details` method installed as a default
+`before_action` which takes some potentially loggable request meta information
+(user agent, IP address) and sets its value in `Current` so that its accesible
+to code elsewhere in the gem. This could also be opted out of if not desirable.
+
+### Helpers
+
+The `Avocado::Authentication` module included into the application controller
+provides some helper methods available in controllers, views, and helpers:
+
+- `signed_in?` is true if the session has a signed in user
+- `current_session` provides the DB record for the session, if one exists
+- `current_user` returns the user belonging to that session
 
 ## Customization
 
