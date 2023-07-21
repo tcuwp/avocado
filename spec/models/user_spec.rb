@@ -86,5 +86,13 @@ RSpec.describe User do
         expect(user.events.last.action).to eq("password:update")
       end
     end
+
+    describe "Email changes" do
+      it "sets verified to false when email changes" do
+        user = create(:user, email: "user@host.example", verified: true)
+
+        expect { user.update(email: "new@host.example") }.to change(user, :verified).from(true).to(false)
+      end
+    end
   end
 end
