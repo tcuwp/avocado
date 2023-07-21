@@ -4,6 +4,7 @@
 - Add event class to log user auth events
 - Add user-facing email and password edit pages
 - Add various event logging callbacks
+- Sign out all non current sessions when password changes
 
 ## [0.4.0] - 2023-07-19
 
