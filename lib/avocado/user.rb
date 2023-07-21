@@ -19,6 +19,14 @@ module Avocado
       scope :verified, -> { where(verified: true) }
 
       normalizes :email, with: ->(email) { email.downcase.strip }
+
+      after_update :record_activity_password_update, if: :password_digest_previously_changed?
+    end
+
+    private
+
+    def record_activity_password_update
+      events.create! action: "password:update"
     end
   end
 end

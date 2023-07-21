@@ -76,4 +76,15 @@ RSpec.describe User do
       it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
     end
   end
+
+  describe "Callbacks" do
+    describe "Password changes" do
+      it "logs action in a user event" do
+        user = create(:user)
+
+        expect { user.update(password: "New.Pass.123", password_confirmation: "New.Pass.123") }.to change(user.events, :count).by(1)
+        expect(user.events.last.action).to eq("password:update")
+      end
+    end
+  end
 end

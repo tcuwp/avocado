@@ -5,6 +5,7 @@ module Avocado
     extend ActiveSupport::Concern
 
     VALID_ACTIONS = [
+      "password:update",
       "session:create",
       "session:destroy"
     ]
