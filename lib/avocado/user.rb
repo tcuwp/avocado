@@ -20,6 +20,7 @@ module Avocado
 
       normalizes :email, with: ->(email) { email.downcase.strip }
 
+      after_update :record_activity_email_update, if: :email_previously_changed?
       after_update :record_activity_password_update, if: :password_digest_previously_changed?
 
       before_validation :remove_email_verification, if: :email_changed?, on: :update
@@ -29,6 +30,10 @@ module Avocado
 
     def record_activity_password_update
       events.create! action: "password:update"
+    end
+
+    def record_activity_email_update
+      events.create! action: "email:update"
     end
 
     def remove_email_verification

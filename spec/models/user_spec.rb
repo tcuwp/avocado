@@ -93,6 +93,13 @@ RSpec.describe User do
 
         expect { user.update(email: "new@host.example") }.to change(user, :verified).from(true).to(false)
       end
+
+      it "logs action in a user event" do
+        user = create(:user, email: "user@host.example", verified: true)
+
+        expect { user.update(email: "new@host.example") }.to change(user.events, :count).by(1)
+        expect(user.events.last.action).to eq("email:update")
+      end
     end
   end
 end
