@@ -1,5 +1,5 @@
-<% flash.to_hash.slice("alert", "error", "notice", "success").each do |key, value| -%>
-  <div class="flash-<%= key %>">
+<% user_facing_flashes.each do |key, value| -%>
+  <div class="flash-<%= user_facing_flash_classes[key.to_sym] %>">
     <%= value %>
   </div>
 <% end -%>
