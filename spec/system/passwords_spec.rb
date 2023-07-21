@@ -9,7 +9,7 @@ RSpec.describe "Passwords" do
       fill_in "Current password", with: "Password.12345"
       fill_in "Password", with: "Password.23456"
       fill_in "Password confirmation", with: "Password.23456"
-      click_on "Save changes"
+      click_on "Submit"
 
       expect(page).to have_content(/has been changed/)
     end
@@ -21,7 +21,7 @@ RSpec.describe "Passwords" do
       fill_in "Current password", with: "Password.Wrong.Current"
       fill_in "Password", with: "Password.23456"
       fill_in "Password confirmation", with: "Password.23456"
-      click_on "Save changes"
+      click_on "Submit"
 
       expect(page).to have_content(/challenge failed/)
     end
@@ -33,7 +33,7 @@ RSpec.describe "Passwords" do
       fill_in "Current password", with: "Password.12345"
       fill_in "Password", with: "Password.23456"
       fill_in "Password confirmation", with: "Password.Wrong"
-      click_on "Save changes"
+      click_on "Submit"
 
       expect(page).to have_content(/Change your password/)
     end

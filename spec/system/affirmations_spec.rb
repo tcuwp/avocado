@@ -7,7 +7,7 @@ RSpec.describe "Affirmations" do
         user = create(:user, verified: true)
         visit new_affirmation_path
         fill_in "Email", with: user.email
-        click_on "Sign in"
+        click_on "Submit"
 
         expect(page).to have_content(/Check your email/)
       end
@@ -18,7 +18,7 @@ RSpec.describe "Affirmations" do
         user = create(:user, verified: false)
         visit new_affirmation_path
         fill_in "Email", with: user.email
-        click_on "Sign in"
+        click_on "Submit"
 
         expect(page).to have_content(/can't sign in/)
       end

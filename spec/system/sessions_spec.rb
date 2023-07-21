@@ -16,7 +16,7 @@ RSpec.describe "Sessions" do
       visit new_session_path
       fill_in "Email", with: user.email
       fill_in "Password", with: user.password
-      click_on "Sign in"
+      click_on "Submit"
 
       expect(page).to have_content(/Session created/)
     end
@@ -27,7 +27,7 @@ RSpec.describe "Sessions" do
       visit new_session_path
       fill_in "Email", with: user.email
       fill_in "Password", with: "Wrong"
-      click_on "Sign in"
+      click_on "Submit"
 
       expect(page).to have_content(/Authentication failed/)
     end

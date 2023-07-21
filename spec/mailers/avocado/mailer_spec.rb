@@ -9,7 +9,7 @@ RSpec.describe Avocado::Mailer do
       expect(mail.subject).to match(/Password reset/)
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["no-reply@host.example"])
-      expect(mail.body.encoded).to match(/Password reset email/)
+      expect(mail.body.encoded).to match(/Reset your password/)
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe Avocado::Mailer do
       expect(mail.subject).to match(/Email verification/)
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["no-reply@host.example"])
-      expect(mail.body.encoded).to match(/Email verification email/)
+      expect(mail.body.encoded).to match(/Verify your email/)
     end
   end
 
@@ -33,7 +33,7 @@ RSpec.describe Avocado::Mailer do
       expect(mail.subject).to match(/Email affirmation/)
       expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(["no-reply@host.example"])
-      expect(mail.body.encoded).to match(/Email affirmation email/)
+      expect(mail.body.encoded).to match(/Sign in by following/)
     end
   end
 end

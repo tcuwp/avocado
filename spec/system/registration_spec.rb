@@ -16,7 +16,7 @@ RSpec.describe "Registration" do
       fill_in "Email", with: "new@example.com"
       fill_in "Password", with: "Password.12345"
       fill_in "Password confirmation", with: "Password.12345"
-      click_on "Sign up"
+      click_on "Submit"
 
       expect(page).to have_content(/successful/)
       expect(ActionMailer::Base.deliveries.size).to eq(1)
@@ -28,7 +28,7 @@ RSpec.describe "Registration" do
       fill_in "Email", with: "new@example.com"
       fill_in "Password", with: "Password.12345"
       fill_in "Password confirmation", with: "Password.Wrong"
-      click_on "Sign up"
+      click_on "Submit"
 
       expect(page).not_to have_content(/successful/)
       expect(ActionMailer::Base.deliveries.size).to eq(0)

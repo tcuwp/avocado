@@ -7,7 +7,7 @@ RSpec.describe "Recoveries" do
 
       visit new_recovery_path
       fill_in "Email", with: user.email
-      click_on "Recover"
+      click_on "Submit"
 
       expect(page).to have_content(/Check your email/)
       expect(Avocado::Mailer.deliveries.size).to eq(1)
@@ -19,7 +19,7 @@ RSpec.describe "Recoveries" do
 
       visit new_recovery_path
       fill_in "Email", with: user.email
-      click_on "Recover"
+      click_on "Submit"
 
       expect(page).to have_content(/Verify email first/)
       expect(Avocado::Mailer.deliveries.size).to eq(0)
@@ -34,7 +34,7 @@ RSpec.describe "Recoveries" do
       visit edit_recovery_path(id: user_signed_id)
       fill_in "Password", with: "Password.New.123"
       fill_in "Password confirmation", with: "Password.New.123"
-      click_on "Update password"
+      click_on "Submit"
 
       expect(page).to have_content(/reset successfully/)
     end
@@ -46,9 +46,9 @@ RSpec.describe "Recoveries" do
       visit edit_recovery_path(id: user_signed_id)
       fill_in "Password", with: "Password.New.123"
       fill_in "Password confirmation", with: "Password.Wrong"
-      click_on "Update password"
+      click_on "Submit"
 
-      expect(page).to have_content(/Reset your password/)
+      expect(page).to have_content(/Change your password/)
     end
 
     it "fails with bad link" do
