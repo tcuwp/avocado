@@ -16,15 +16,19 @@ module Avocado
     private
 
     def record_activity_password_update
-      events.create! action: "password:update"
+      create_event "password:update"
     end
 
     def record_activity_email_update
-      events.create! action: "email:update"
+      create_event "email:update"
     end
 
     def record_activity_email_verified
-      events.create! action: "email:verified"
+      create_event "email:verified"
+    end
+
+    def create_event(action)
+      events.create! action: action
     end
 
     def remove_email_verification
