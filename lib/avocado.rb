@@ -11,6 +11,7 @@ module Avocado
   autoload :Mailer, "avocado/mailer"
   autoload :Session, "avocado/session"
   autoload :User, "avocado/user"
+  autoload :UserCallbacks, "avocado/user_callbacks"
   autoload :UserTokens, "avocado/user_tokens"
   autoload :UserValidations, "avocado/user_validations"
 end
