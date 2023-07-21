@@ -1,4 +1,4 @@
-# Avocado
+# 🥑
 
 If you're anything like us you like to periodically look at unreleased Rails
 versions and see what sort of framework changes are coming out in the future so
@@ -10,8 +10,9 @@ molassey, I bet you could DIY a nice auth solution with these dog-gone methods!"
 
 But then again, maybe it's too soon for that, or maybe you're nervous about
 writing authentication code in your own application and would like to consume it
-in scrumpulent gem form instead. Avocado is an extraction of the authentication
-portion of an experimental Rails 7.1 codebase built in our research group.
+in scrumpulent gem form instead. The 🥑 gem is an extraction of the
+authentication portion of an experimental Rails 7.1 codebase built in our
+research group.
 
 ## Installation
 
