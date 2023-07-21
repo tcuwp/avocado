@@ -1,0 +1,16 @@
+<h2>
+  Change your password
+</h2>
+
+<%= form_with model: @user, url: password_path, method: :patch do |form| %>
+  <%= form.label :password_challenge, "Current password" %>
+  <%= form.password_field :password_challenge, autocomplete: "current-password", required: true %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password, autocomplete: "new-password", required: true %>
+
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true %>
+
+  <%= form.button "Save changes", name: nil %>
+<% end %>

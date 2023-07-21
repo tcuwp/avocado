@@ -1,0 +1,20 @@
+<h2>
+  Email verification
+</h2>
+
+<% if current_user.verified? %>
+  <p>Your email is verified.</p>
+<% else %>
+  <p>Your email is not verified. We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.</p>
+  <p><%= button_to "Re-send verification email", verifications_path %></p>
+<% end %>
+
+<%= form_with model: @user, url: email_path, method: :patch do |form| %>
+  <%= form.label :email %>
+  <%= form.email_field :email, autocomplete: "email", required: true %>
+
+  <%= form.label :password_challenge, "Current password" %>
+  <%= form.password_field :password_challenge, autocomplete: "current-password", required: true %>
+
+  <%= form.button "Save changes", name: nil %>
+<% end %>

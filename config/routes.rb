@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   scope module: :avocado do
+    resource :email, only: %i[edit update]
+    resource :password, only: %i[edit update]
     resources :affirmations, only: %i[new show create]
     resources :events, only: %i[index]
     resources :recoveries, only: %i[new create edit update]

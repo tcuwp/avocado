@@ -2,6 +2,7 @@
 
 - Add controller for "passwordless" email-link sign-in
 - Add event class to log user auth events
+- Add user-facing email and password edit pages
 
 ## [0.4.0] - 2023-07-19
 
