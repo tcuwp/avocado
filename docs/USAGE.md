@@ -59,7 +59,7 @@ end
 ### Routes
 
 The 🥑 gem does not add any routes to the application when initialized. To hook
-up the controllers to routes, they must be added to to the `config/routes.rb` of
+up the controllers to routes, they must be added to the `config/routes.rb` of
 the application. It's possible to add all of the routes, or just a subset.
 
 Example that defines a root route and also pulls in every feature route:
