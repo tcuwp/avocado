@@ -3,7 +3,6 @@
 module Avocado
   class RecoveriesController < BaseController
     UPDATE_PARAMETERS = %i[password password_confirmation]
-    FINDER_PARAMETERS = %i[email]
 
     skip_before_action :authenticate
 
@@ -51,16 +50,6 @@ module Avocado
       params
         .require(:user)
         .permit(UPDATE_PARAMETERS)
-    end
-
-    def finder_parameters
-      params
-        .require(:user)
-        .permit(FINDER_PARAMETERS)
-    end
-
-    def requested_verified_user
-      ::User.verified.find_by(email: finder_parameters[:email])
     end
 
     def send_password_reset_email

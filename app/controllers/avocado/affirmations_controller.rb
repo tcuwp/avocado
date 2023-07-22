@@ -2,8 +2,6 @@
 
 module Avocado
   class AffirmationsController < BaseController
-    FINDER_PARAMETERS = %i[email]
-
     skip_before_action :authenticate
 
     before_action :set_user, only: %i[edit update]
@@ -47,16 +45,6 @@ module Avocado
       mailer_for(requested_verified_user)
         .email_affirmation
         .deliver_later
-    end
-
-    def requested_verified_user
-      ::User.verified.find_by(email: finder_parameters[:email])
-    end
-
-    def finder_parameters
-      params
-        .require(:user)
-        .permit(FINDER_PARAMETERS)
     end
   end
 end
