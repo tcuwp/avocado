@@ -37,12 +37,12 @@ module Avocado
 
     def sign_in(user)
       ::Session.create!(user: user).tap do |session|
-        cookies.signed.permanent[:session_token] = {value: session.id, httponly: true}
+        cookies.signed.permanent[:session_token] = {value: session.token, httponly: true}
       end
     end
 
     def session_from_token
-      ::Session.find_by_id(cookies.signed[:session_token])
+      ::Session.find_by_token(cookies.signed[:session_token])
     end
 
     def set_current_request_details

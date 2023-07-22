@@ -1,6 +1,7 @@
 ## [Unreleased]
 
 - Change affirmations and verifications to require user action
+- Use session token instead of id for signed cookie value
 
 ## [0.5.0] - 2023-07-21
 

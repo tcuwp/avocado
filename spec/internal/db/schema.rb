@@ -13,10 +13,12 @@ ActiveRecord::Schema.define do
 
   create_table "sessions", force: true do |t|
     t.bigint "user_id", null: false
+    t.string "token", null: false
     t.string "user_agent"
     t.string "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_sessions_on_token", unique: true
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 

@@ -76,4 +76,17 @@ RSpec.describe Session do
       end
     end
   end
+
+  describe "Validations" do
+    describe "Token" do
+      it { is_expected.to validate_presence_of(:token) }
+    end
+  end
+
+  describe "Tokens" do
+    it "generates a secure token on save" do
+      session = build(:session)
+      expect(session.token).not_to be_nil
+    end
+  end
 end
