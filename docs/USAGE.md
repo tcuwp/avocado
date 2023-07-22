@@ -67,7 +67,7 @@ Example that defines a root route and also pulls in every feature route:
 ```ruby
 Rails.application.routes.draw do
   root to: "records#index"
-  draw(:🥑)
+  draw(🥑)
 end
 ```
 
