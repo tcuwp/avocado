@@ -53,7 +53,7 @@ module Avocado
     end
 
     def user_from_params_email
-      ::User.find_by(email: params[:email], verified: true)
+      ::User.verified.find_by(email: params[:email])
     end
 
     def send_password_reset_email
