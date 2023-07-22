@@ -2,6 +2,8 @@
 
 module Avocado
   class AffirmationsController < BaseController
+    PERMITTED_PARAMS = [:email]
+
     skip_before_action :authenticate
 
     before_action :set_user, only: %i[edit update]
@@ -48,7 +50,13 @@ module Avocado
     end
 
     def user_from_params_email
-      ::User.verified.find_by(email: params[:email])
+      ::User.verified.find_by(email: user_params[:email])
+    end
+
+    def user_params
+      params
+        .require(:user)
+        .permit(PERMITTED_PARAMS)
     end
   end
 end
