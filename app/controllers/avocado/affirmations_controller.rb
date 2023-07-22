@@ -38,18 +38,18 @@ module Avocado
     end
 
     def verify_user
-      unless user_from_params_email
+      unless requested_verified_user
         redirect_to new_affirmation_path, alert: "You can't sign in until you verify your email"
       end
     end
 
     def send_affirmation_email
-      mailer_for(user_from_params_email)
+      mailer_for(requested_verified_user)
         .email_affirmation
         .deliver_later
     end
 
-    def user_from_params_email
+    def requested_verified_user
       ::User.verified.find_by(email: user_params[:email])
     end
 

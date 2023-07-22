@@ -41,7 +41,7 @@ module Avocado
     end
 
     def verify_user
-      unless user_from_params_email
+      unless requested_verified_user
         redirect_to new_recovery_path, alert: "Verify email first before resetting password."
       end
     end
@@ -52,12 +52,12 @@ module Avocado
         .permit(PERMITTED_PARAMS)
     end
 
-    def user_from_params_email
+    def requested_verified_user
       ::User.verified.find_by(email: params[:email])
     end
 
     def send_password_reset_email
-      mailer_for(user_from_params_email)
+      mailer_for(requested_verified_user)
         .password_reset
         .deliver_later
     end
