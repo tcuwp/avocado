@@ -3,6 +3,7 @@
 module Avocado
   class RecoveriesController < BaseController
     PERMITTED_PARAMS = %i[password password_confirmation]
+    FINDER_PARAMS = %i[email]
 
     skip_before_action :authenticate
 
@@ -52,8 +53,14 @@ module Avocado
         .permit(PERMITTED_PARAMS)
     end
 
+    def finder_params
+      params
+        .require(:user)
+        .permit(FINDER_PARAMS)
+    end
+
     def requested_verified_user
-      ::User.verified.find_by(email: params[:email])
+      ::User.verified.find_by(email: finder_params[:email])
     end
 
     def send_password_reset_email
