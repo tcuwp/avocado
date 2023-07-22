@@ -56,9 +56,11 @@ class ApplicationController < ActionController::Base
 end
 ```
 
+### Routes
+
 The 🥑 gem does not add any routes to the application when initialized. To hook
-up the controller actions to routes, they must be added to to the
-`config/routes.rb`.
+up the controllers to routes, they must be added to to the `config/routes.rb` of
+the application. It's possible to add all of the routes, or just a subset.
 
 Example that defines a root route and also pulls in every feature route:
 
@@ -66,6 +68,18 @@ Example that defines a root route and also pulls in every feature route:
 Rails.application.routes.draw do
   root to: "records#index"
   draw(:🥑)
+end
+```
+
+Example that adds only the sign-up, sign-in, and sign-out actions:
+
+```ruby
+Rails.application.routes.draw do
+  root to: "records#index"
+  scope module: :avocado do
+    resources :registrations, only: %i[new create]
+    resources :sessions, only: %i[new create destroy]
+  end
 end
 ```
 
