@@ -2,7 +2,7 @@
 
 module Avocado
   class SessionsController < BaseController
-    PERMITTED_PARAMS = %i[email password]
+    AUTHENTICATION_PARAMETERS = %i[email password]
 
     skip_before_action :authenticate, only: %i[new create]
 
@@ -33,15 +33,15 @@ module Avocado
 
     private
 
-    def session_params
+    def authentication_parameters
       params
         .require(:session)
-        .permit(PERMITTED_PARAMS)
+        .permit(AUTHENTICATION_PARAMETERS)
         .with_defaults(email: "", password: "")
     end
 
     def authenticated_user
-      @_authenticated_user ||= ::User.authenticate_by(session_params)
+      @_authenticated_user ||= ::User.authenticate_by(authentication_parameters)
     end
 
     def verify_authentication_attempt

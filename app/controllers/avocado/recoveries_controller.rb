@@ -2,8 +2,8 @@
 
 module Avocado
   class RecoveriesController < BaseController
-    PERMITTED_PARAMS = %i[password password_confirmation]
-    FINDER_PARAMS = %i[email]
+    UPDATE_PARAMETERS = %i[password password_confirmation]
+    FINDER_PARAMETERS = %i[email]
 
     skip_before_action :authenticate
 
@@ -22,7 +22,7 @@ module Avocado
     end
 
     def update
-      if @user.update(user_params)
+      if @user.update(update_parameters)
         redirect_to new_session_path, notice: "Password reset successfully. Please sign in."
       else
         render :edit, status: :unprocessable_entity
@@ -47,20 +47,20 @@ module Avocado
       end
     end
 
-    def user_params
+    def update_parameters
       params
         .require(:user)
-        .permit(PERMITTED_PARAMS)
+        .permit(UPDATE_PARAMETERS)
     end
 
-    def finder_params
+    def finder_parameters
       params
         .require(:user)
-        .permit(FINDER_PARAMS)
+        .permit(FINDER_PARAMETERS)
     end
 
     def requested_verified_user
-      ::User.verified.find_by(email: finder_params[:email])
+      ::User.verified.find_by(email: finder_parameters[:email])
     end
 
     def send_password_reset_email

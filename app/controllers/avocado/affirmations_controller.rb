@@ -2,7 +2,7 @@
 
 module Avocado
   class AffirmationsController < BaseController
-    PERMITTED_PARAMS = [:email]
+    FINDER_PARAMETERS = %i[email]
 
     skip_before_action :authenticate
 
@@ -50,13 +50,13 @@ module Avocado
     end
 
     def requested_verified_user
-      ::User.verified.find_by(email: user_params[:email])
+      ::User.verified.find_by(email: finder_parameters[:email])
     end
 
-    def user_params
+    def finder_parameters
       params
         .require(:user)
-        .permit(PERMITTED_PARAMS)
+        .permit(FINDER_PARAMETERS)
     end
   end
 end

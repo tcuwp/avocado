@@ -2,7 +2,7 @@
 
 module Avocado
   class RegistrationsController < BaseController
-    PERMITTED_PARAMS = %i[email password password_confirmation]
+    INITIALIZATION_PARAMETERS = %i[email password password_confirmation]
 
     skip_before_action :authenticate
 
@@ -11,7 +11,7 @@ module Avocado
     end
 
     def create
-      @user = ::User.new(user_params)
+      @user = ::User.new(initialization_parameters)
 
       if @user.save
         sign_in(@user)
@@ -25,10 +25,10 @@ module Avocado
 
     private
 
-    def user_params
+    def initialization_parameters
       params
         .require(:user)
-        .permit(PERMITTED_PARAMS)
+        .permit(INITIALIZATION_PARAMETERS)
     end
 
     def send_email_verification

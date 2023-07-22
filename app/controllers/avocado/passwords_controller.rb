@@ -2,7 +2,7 @@
 
 module Avocado
   class PasswordsController < BaseController
-    PERMITTED_PARAMS = [:password, :password_confirmation, :password_challenge]
+    UPDATE_PARAMETERS = %i[password password_confirmation password_challenge]
 
     before_action :set_user
     before_action :verify_password_challenge, only: :update
@@ -11,7 +11,7 @@ module Avocado
     end
 
     def update
-      if @user.update(user_params)
+      if @user.update(update_parameters)
         redirect_to root_path, notice: "Your password has been changed"
       else
         render :edit, status: :unprocessable_entity
@@ -24,10 +24,10 @@ module Avocado
       @user = current_user
     end
 
-    def user_params
+    def update_parameters
       params
         .require(:user)
-        .permit(PERMITTED_PARAMS)
+        .permit(UPDATE_PARAMETERS)
         .with_defaults(password_challenge: "")
     end
   end

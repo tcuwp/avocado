@@ -2,7 +2,7 @@
 
 module Avocado
   class EmailsController < BaseController
-    PERMITTED_PARAMS = [:email]
+    UPDATE_PARAMETERS = %i[email]
 
     before_action :set_user
     before_action :verify_password_challenge, only: :update
@@ -11,7 +11,7 @@ module Avocado
     end
 
     def update
-      if @user.update(user_params)
+      if @user.update(update_parameters)
         process_email_update
       else
         render :edit, status: :unprocessable_entity
@@ -24,10 +24,10 @@ module Avocado
       @user = current_user
     end
 
-    def user_params
+    def update_parameters
       params
         .require(:user)
-        .permit(PERMITTED_PARAMS)
+        .permit(UPDATE_PARAMETERS)
     end
 
     def process_email_update
