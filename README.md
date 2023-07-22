@@ -26,9 +26,9 @@ Read the [documentation] for more details.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies.
-
-Running `bundle exec rake` will run the full spec suite and a linter.
+After checking out the repo, run `bin/setup` to install dependencies. Use
+`bin/rspec` to run the full spec suite and `bin/standardrb` to run the linter.
+Running `bin/rake` will run specs & linter.
 
 ## Contributing
 
