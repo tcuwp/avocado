@@ -1,24 +1,23 @@
 # Overview
 
-The 🥑 gem is a [Rails Engine] composed of a mixture of Ruby modules that you
-include into your own application classes within your Rails application and Ruby
-classes which will run directly from the 🥑 gem itself. The classes are intended
-to provide good defaults for basic scenarios, and can be subclassed and
-overridden for special cases beyond the basics.
+The 🥑 gem is a [Rails Engine] composed of a mixture of Ruby modules that get
+included into application classes and Ruby classes which will run directly from
+the 🥑 gem itself. The classes are intended to provide good defaults for basic
+scenarios, and can be subclassed and overridden for special cases.
 
 ## Requirements
 
-You must be running Rails 7.1 or newer within your application. The 🥑 gem uses
-features like `authenticate_by`, `has_secure_password`, `generates_token_for`,
-and `normalizes` which don't exist in earlier versions.
+Apps must be running Rails 7.1 or newer. The 🥑 gem uses features like
+`authenticate_by`, `has_secure_password`, `generates_token_for`, and
+`normalizes` which don't exist in earlier versions.
 
-You should have a database schema with columns that match the `users`,
-`sessions`, and `events` tables from the [demo app schema]. It's ok to have more
-columns in each table, but you need at least what is shown there. Slight
-variations (using `uuid` instead of `bigint` for example) are harmless, but
-large departures will break the integration.
+The database schema must have columns that match the `users`, `sessions`, and
+`events` tables from the [demo app schema]. More columns in each table are
+acceptable; the demo is just a minimum. Slight variations (using `uuid` instead
+of `bigint` for example) are harmless, but large departures will break the
+integration.
 
-Your application must also have:
+The application must also have:
 
 - An `ApplicationController` base controller class
 - An `ApplicationMailer` base mailer class
@@ -26,7 +25,9 @@ Your application must also have:
 
 ## Usage
 
-Once those requirements are met, include the modules into your models:
+### Models
+
+Include these modules into `ActiveRecord` model classes:
 
 ```ruby
 class User < ApplicationRecord
@@ -45,11 +46,26 @@ end
 This will set up some basic associations, validations, callbacks, and
 normalizations for those models.
 
-You also need to add the `Authentication` module to your top-level controller:
+### Controllers
+
+Add the `Avocado::Authentication` module to the top-level controller:
 
 ```ruby
 class ApplicationController < ActionController::Base
   include Avocado::Authentication
+end
+```
+
+The 🥑 gem does not add any routes to the application when initialized. To hook
+up the controller actions to routes, they must be added to to the
+`config/routes.rb`.
+
+Example that defines a root route and also pulls in every feature route:
+
+```ruby
+Rails.application.routes.draw do
+  root to: "records#index"
+  draw(:🥑)
 end
 ```
 
@@ -75,14 +91,14 @@ These internal (authenticated) features are available:
 - `Passwords` -- Edit and update user password
 - `Emails` -- Edit and update user email
 
-Linking to any of these internal pages is optional. You can use them as-is,
-override their views, or even ignore them entirely and make your own versions.
+Linking to any of these internal pages is optional. Apps can use them as-is,
+override their views, or even ignore them entirely and make local versions.
 
 ### Mailers
 
 There is an `Avocado::Mailer` which gets called to send emails. The mailer views
-here are very basic, and should be overriden within applications. You can place
-views within `app/views/avocado/mailer/` to make this happen.
+here are very basic, and should be overriden within applications. Place views
+within `app/views/avocado/mailer/` to make this happen.
 
 ### Before actions
 
@@ -111,8 +127,8 @@ Usage of these can be seen in the views in the [demo app].
 There is not any configuration. To override functionality:
 
 - Redefine a method created in one of the models by the included module
-- Subclass a controller and update the routing to go to your subclass
-- Place views in your app where avocado expects them to override the defaults
+- Subclass a controller and update the routing to go to the subclass
+- Place views in the app where avocado expects them to override the defaults
 
 ## Examples
 
