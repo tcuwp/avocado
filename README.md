@@ -1,6 +1,6 @@
 # 🥑
 
-A collection of authentication tools for use in [Rails] 7.1+ applications.
+Authentication library for [Rails] 7.1+ applications.
 
 ## Installation
 
