@@ -17,6 +17,8 @@ acceptable; the demo is just a minimum. Slight variations (using `uuid` instead
 of `bigint` for example) are harmless, but large departures will break the
 integration.
 
+Run `bin/rails g avocado:migrations` to generate migrations for the tables.
+
 The application must also have:
 
 - An `ApplicationController` base controller class

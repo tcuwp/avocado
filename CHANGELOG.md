@@ -2,6 +2,7 @@
 
 - Change affirmations and verifications to require user action
 - Use session token instead of id for signed cookie value
+- Add migration generators
 
 ## [0.5.0] - 2023-07-21
 
