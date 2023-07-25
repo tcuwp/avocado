@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [0.6.0] - 2023-07-25
+
 - Change affirmations and verifications to require user action
 - Use session token instead of id for signed cookie value
 - Add migration generators
