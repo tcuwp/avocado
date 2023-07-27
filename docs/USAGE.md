@@ -8,8 +8,8 @@ scenarios, and can be subclassed and overridden for special cases.
 ## Requirements
 
 Apps must be running Rails 7.1 or newer. The 🥑 gem uses features like
-`authenticate_by`, `has_secure_password`, `generates_token_for`, and
-`normalizes` which don't exist in earlier versions.
+`authenticate_by`, the `password_challenge` feature of `has_secure_password`,
+`generates_token_for`, and `normalizes` which don't exist in earlier versions.
 
 The database schema must have columns that match the `users`, `sessions`, and
 `events` tables from the [demo app schema]. More columns in each table are
