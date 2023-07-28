@@ -7,10 +7,7 @@
     <%= csp_meta_tag %>
   </head>
   <body>
-    <% if signed_in? -%>
-      <p>Hello <%= current_user.email %> </p>
-      <%= button_to "Sign out", current_session, method: :delete %>
-    <% end -%>
+    <%= render "header" %>
     <%= render "flashes" %>
     <main>
       <%= yield %>
