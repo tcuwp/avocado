@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Flash messages for controllers moved to i18n yml
+
 ## [0.6.0] - 2023-07-25
 
 ### Added
