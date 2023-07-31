@@ -18,7 +18,7 @@ module Avocado
 
     def update
       sign_in(@user)
-      redirect_to(root_path, notice: "Signed in successfully")
+      redirect_to root_path, notice: "Signed in successfully"
     end
 
     private
