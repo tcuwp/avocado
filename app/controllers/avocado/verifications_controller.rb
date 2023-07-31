@@ -30,7 +30,8 @@ module Avocado
     end
 
     def user_from_signed_email_verification_token
-      ::User.find_by_token_for!(:email_verification, params[:id])
+      ::User
+        .find_by_token_for!(:email_verification, params[:id])
     end
 
     def send_email_verification

@@ -3,7 +3,8 @@ module Avocado
     UPDATE_PARAMETERS = %i[password password_confirmation password_challenge]
 
     before_action :set_user
-    before_action :verify_password_challenge, only: :update
+    before_action :verify_password_challenge,
+      only: :update
 
     def edit
     end

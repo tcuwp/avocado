@@ -2,16 +2,20 @@ module Avocado
   class SessionsController < BaseController
     AUTHENTICATION_PARAMETERS = %i[email password]
 
-    skip_before_action :authenticate, only: %i[new create]
+    skip_before_action :authenticate,
+      only: %i[new create]
 
     with_options only: :create do
       before_action :verify_authentication_attempt
     end
 
-    before_action :set_session, only: :destroy
+    before_action :set_session,
+      only: :destroy
 
     def index
-      @sessions = current_user.sessions.newest_first
+      @sessions = current_user
+        .sessions
+        .newest_first
     end
 
     def new
@@ -41,7 +45,8 @@ module Avocado
     end
 
     def authenticated_user
-      @_authenticated_user ||= ::User.authenticate_by(authentication_parameters)
+      @_authenticated_user ||= ::User
+        .authenticate_by(authentication_parameters)
     end
 
     def verify_authentication_attempt
@@ -52,7 +57,9 @@ module Avocado
     end
 
     def set_session
-      @session = current_user.sessions.find(params[:id])
+      @session = current_user
+        .sessions
+        .find(params[:id])
     end
   end
 end

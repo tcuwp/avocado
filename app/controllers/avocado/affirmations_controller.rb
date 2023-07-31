@@ -2,8 +2,10 @@ module Avocado
   class AffirmationsController < BaseController
     skip_before_action :authenticate
 
-    before_action :set_user, only: %i[edit update]
-    before_action :verify_user, only: :create
+    before_action :set_user,
+      only: %i[edit update]
+    before_action :verify_user,
+      only: :create
 
     def new
     end

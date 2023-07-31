@@ -12,11 +12,14 @@ module Avocado
     end
 
     def params_password_challenge
-      params.dig(:user, :password_challenge)
+      params
+        .dig(:user, :password_challenge)
     end
 
     def requested_verified_user
-      ::User.verified.find_by(email: finder_parameters[:email])
+      ::User
+        .verified
+        .find_by(email: finder_parameters[:email])
     end
 
     def finder_parameters
@@ -26,7 +29,8 @@ module Avocado
     end
 
     def mailer_for(user)
-      Avocado::Mailer.with(user: user)
+      Avocado::Mailer
+        .with(user: user)
     end
   end
 end

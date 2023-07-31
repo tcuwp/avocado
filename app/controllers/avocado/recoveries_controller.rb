@@ -4,8 +4,10 @@ module Avocado
 
     skip_before_action :authenticate
 
-    before_action :set_user, only: %i[edit update]
-    before_action :verify_user, only: :create
+    before_action :set_user,
+      only: %i[edit update]
+    before_action :verify_user,
+      only: :create
 
     def new
     end
@@ -38,7 +40,8 @@ module Avocado
     end
 
     def user_from_signed_password_reset_token
-      ::User.find_by_token_for!(:password_reset, params[:id])
+      ::User
+        .find_by_token_for!(:password_reset, params[:id])
     end
 
     def verify_user
