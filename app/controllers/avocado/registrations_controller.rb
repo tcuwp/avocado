@@ -15,7 +15,8 @@ module Avocado
         sign_in(@user)
 
         send_email_verification
-        redirect_to root_path, notice: "Registration successful"
+        redirect_to root_path,
+          notice: "Registration successful."
       else
         render :new, status: :unprocessable_entity
       end

@@ -10,7 +10,8 @@ module Avocado
 
     def create
       send_affirmation_email
-      redirect_to new_session_path, notice: "Check your email for sign in instructions"
+      redirect_to new_session_path,
+        notice: "Check your email for sign in instructions."
     end
 
     def edit
@@ -18,7 +19,8 @@ module Avocado
 
     def update
       sign_in(@user)
-      redirect_to root_path, notice: "Signed in successfully"
+      redirect_to root_path,
+        notice: "Signed in successfully."
     end
 
     private
@@ -26,7 +28,8 @@ module Avocado
     def set_user
       @user = user_from_signed_affirmation_token
     rescue ActiveSupport::MessageVerifier::InvalidSignature
-      redirect_to new_affirmation_path, alert: "That sign in link is invalid"
+      redirect_to new_affirmation_path,
+        alert: "That sign in link is invalid."
     end
 
     def user_from_signed_affirmation_token
@@ -35,7 +38,8 @@ module Avocado
 
     def verify_user
       unless requested_verified_user
-        redirect_to new_affirmation_path, alert: "You can't sign in until you verify your email"
+        redirect_to new_affirmation_path,
+          alert: "You can't sign in until you verify your email."
       end
     end
 
