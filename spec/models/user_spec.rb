@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe User do
   describe "Authentication" do
     it "Authenticates by email and password" do

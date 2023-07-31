@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Affirmations" do
   describe "sending a one-time email link" do
     context "with a verified user" do

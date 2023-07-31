@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class AffirmationsController < BaseController
     skip_before_action :authenticate

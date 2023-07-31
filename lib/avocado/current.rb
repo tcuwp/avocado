@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class Current < ActiveSupport::CurrentAttributes
     attribute :session,

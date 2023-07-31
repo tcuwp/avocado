@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Passwords" do
   describe "Changing the password" do
     it "updates password with valid inputs" do

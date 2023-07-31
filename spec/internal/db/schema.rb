@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 ActiveRecord::Schema.define do
   create_table "events", force: true do |t|
     t.bigint "user_id", null: false

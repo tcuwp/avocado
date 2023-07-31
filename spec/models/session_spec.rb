@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe Session do
   describe "Scopes" do
     describe ".newest_first" do

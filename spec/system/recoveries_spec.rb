@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Recoveries" do
   describe "Sending a password reset email" do
     it "sends the reset email" do

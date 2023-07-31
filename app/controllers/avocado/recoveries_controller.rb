@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class RecoveriesController < BaseController
     UPDATE_PARAMETERS = %i[password password_confirmation]

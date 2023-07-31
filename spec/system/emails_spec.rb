@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Emails" do
   describe "Changing a user email" do
     it "updates the email with correct current password" do

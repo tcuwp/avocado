@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Verification" do
   describe "Requesting a verification email" do
     it "sends the email_verification email" do

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class Mailer < ApplicationMailer
     before_action :set_user

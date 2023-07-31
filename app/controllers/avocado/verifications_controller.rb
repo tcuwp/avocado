@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class VerificationsController < BaseController
     with_options only: %i[edit update] do

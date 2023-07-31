@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class EmailsController < BaseController
     UPDATE_PARAMETERS = %i[email]

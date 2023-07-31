@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Sessions" do
   describe "Sign in page" do
     it "shows a sign in form" do

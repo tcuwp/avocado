@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe Avocado::UserTokens do
   describe "Email affirmation" do
     it "Finds the user with a generated signed id" do

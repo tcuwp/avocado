@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Registration" do
   describe "Registration page" do
     it "shows a sign up form" do

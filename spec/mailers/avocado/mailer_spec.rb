@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe Avocado::Mailer do
   describe "Password reset" do
     it "creates an email" do

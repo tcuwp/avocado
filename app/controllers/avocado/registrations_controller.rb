@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   class RegistrationsController < BaseController
     INITIALIZATION_PARAMETERS = %i[email password password_confirmation]

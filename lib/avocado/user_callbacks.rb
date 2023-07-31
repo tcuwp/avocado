@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Avocado
   module UserCallbacks
     extend ActiveSupport::Concern

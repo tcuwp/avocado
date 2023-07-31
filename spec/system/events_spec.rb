@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe "Events" do
   describe "When signed in" do
     before do
