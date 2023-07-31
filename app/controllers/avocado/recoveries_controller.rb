@@ -13,7 +13,7 @@ module Avocado
     def create
       send_password_reset_email
       redirect_to new_session_path,
-        notice: "Check your email for reset instructions."
+        notice: t(".success")
     end
 
     def edit
@@ -22,7 +22,7 @@ module Avocado
     def update
       if @user.update(update_parameters)
         redirect_to new_session_path,
-          notice: "Password reset successfully. Please sign in."
+          notice: t(".success")
       else
         render :edit, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ module Avocado
       @user = user_from_signed_password_reset_token
     rescue ActiveSupport::MessageVerifier::InvalidSignature
       redirect_to new_recovery_path,
-        alert: "Password reset link is invalid."
+        alert: t(".errors.invalid_token")
     end
 
     def user_from_signed_password_reset_token
@@ -44,7 +44,7 @@ module Avocado
     def verify_user
       unless requested_verified_user
         redirect_to new_recovery_path,
-          alert: "Verify email first before resetting password."
+          alert: t(".errors.unverified_email")
       end
     end
 

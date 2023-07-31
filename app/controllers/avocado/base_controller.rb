@@ -7,7 +7,7 @@ module Avocado
     def verify_password_challenge
       unless current_user.authenticate(params_password_challenge)
         redirect_back fallback_location: root_path,
-          alert: "Password challenge failed"
+          alert: t("avocado.filters.invalid_password_challenge")
       end
     end
 

@@ -11,13 +11,13 @@ module Avocado
     def update
       @user.update! verified: true
       redirect_to root_path,
-        notice: "Email address verified."
+        notice: t(".success")
     end
 
     def create
       send_email_verification
       redirect_to root_path,
-        notice: "Verification email sent to your address."
+        notice: t(".success")
     end
 
     private
@@ -26,7 +26,7 @@ module Avocado
       @user = user_from_signed_email_verification_token
     rescue ActiveSupport::MessageVerifier::InvalidSignature
       redirect_to root_path,
-        alert: "Email verification link is invalid."
+        alert: t(".errors.invalid_token")
     end
 
     def user_from_signed_email_verification_token

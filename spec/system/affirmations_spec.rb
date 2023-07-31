@@ -7,7 +7,7 @@ RSpec.describe "Affirmations" do
         fill_in "Email", with: user.email
         click_on "Submit"
 
-        expect(page).to have_content(/Check your email/)
+        expect(page).to have_content(/Check email for/)
       end
     end
 
@@ -18,7 +18,7 @@ RSpec.describe "Affirmations" do
         fill_in "Email", with: user.email
         click_on "Submit"
 
-        expect(page).to have_content(/can't sign in/)
+        expect(page).to have_content(/Verify email first/)
       end
     end
   end

@@ -22,13 +22,13 @@ module Avocado
       sign_in(authenticated_user)
 
       redirect_to root_path,
-        notice: "Session created."
+        notice: t(".success")
     end
 
     def destroy
       @session.destroy
       redirect_to sessions_path,
-        notice: "Session destroyed."
+        notice: t(".success")
     end
 
     private
@@ -47,7 +47,7 @@ module Avocado
     def verify_authentication_attempt
       if authenticated_user.blank?
         redirect_to new_session_path,
-          alert: "Authentication failed."
+          alert: t(".errors.authentication")
       end
     end
 

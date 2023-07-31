@@ -32,7 +32,7 @@ module Avocado
       if @user.email_previously_changed?
         resend_email_verification
         redirect_to root_path,
-          notice: "Your email has been changed."
+          notice: t(".success")
       else
         redirect_to root_path
       end

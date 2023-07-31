@@ -7,7 +7,7 @@ RSpec.describe "Recoveries" do
       fill_in "Email", with: user.email
       click_on "Submit"
 
-      expect(page).to have_content(/Check your email/)
+      expect(page).to have_content(/Check email for reset/)
       expect(Avocado::Mailer.deliveries.size).to eq(1)
     end
 
