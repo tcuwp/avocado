@@ -60,9 +60,9 @@ end
 
 ### Routes
 
-The 🥑 gem does not add any routes to the application when initialized. To hook
-up the controllers to routes, they must be added to the `config/routes.rb` of
-the application. It's possible to add all of the routes, or just a subset.
+By defalt, 🥑 does not add any routes to the application when initialized. To
+hook up the controllers to routes, they must be added to the `config/routes.rb`
+of the application. It's possible to add all of the routes, or just a subset.
 
 Example that defines a root route and also pulls in every feature route:
 
@@ -78,7 +78,7 @@ Example that adds only the sign-up, sign-in, and sign-out actions:
 ```ruby
 Rails.application.routes.draw do
   root to: "records#index"
-  scope module: :avocado do
+  scope module: 🥑 do
     resources :registrations, only: %i[new create]
     resources :sessions, only: %i[new create destroy]
   end
