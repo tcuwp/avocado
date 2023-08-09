@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gemspec
 
 gem "capybara"
-gem "combustion", "~> 1.3"
+gem "combustion"
 gem "factory_bot_rails"
 gem "rails", github: "rails/rails"
 gem "rake"

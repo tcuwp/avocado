@@ -283,7 +283,7 @@ PLATFORMS
 DEPENDENCIES
   avocado!
   capybara
-  combustion (~> 1.3)
+  combustion
   factory_bot_rails
   rails!
   rake
