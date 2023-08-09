@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name = "avocado"
   spec.version = Avocado::VERSION
   spec.authors = ["Matt Jankowski"]
-  spec.email = ["matt@jankowski.online"]
+  spec.email = ["info@tcuwp.co"]
 
   spec.summary = "Simple authentication for Rails (7.1+) applications"
   spec.homepage = "https://github.com/tcuwp/avocado"
