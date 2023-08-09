@@ -148,7 +148,11 @@ There is not any configuration. To override functionality:
 
 - Redefine a method created in one of the models by the included module
 - Subclass a controller and update the routing to go to the subclass
-- Place views in the app where avocado expects them to override the defaults
+- Place views in the app where avocado expects (`app/views/avocado`) them to
+  override the defaults
+
+There is an `avocado:views` generator which will copy all the views as a
+starting point for further modification.
 
 ## Examples
 
