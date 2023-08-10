@@ -31,18 +31,12 @@ module Avocado
 
     def process_email_update
       if @user.email_previously_changed?
-        resend_email_verification
+        send_email_verification(@user)
         redirect_to root_path,
           notice: t(".success")
       else
         redirect_to root_path
       end
-    end
-
-    def resend_email_verification
-      mailer_for(@user)
-        .email_verification
-        .deliver_later
     end
   end
 end

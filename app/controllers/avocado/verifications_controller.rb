@@ -15,7 +15,7 @@ module Avocado
     end
 
     def create
-      send_email_verification
+      send_email_verification(current_user)
       redirect_to root_path,
         notice: t(".success")
     end
@@ -32,12 +32,6 @@ module Avocado
     def user_from_signed_email_verification_token
       ::User
         .find_by_token_for!(:email_verification, params[:id])
-    end
-
-    def send_email_verification
-      mailer_for(current_user)
-        .email_verification
-        .deliver_later
     end
   end
 end

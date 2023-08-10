@@ -14,7 +14,7 @@ module Avocado
       if @user.save
         sign_in(@user)
 
-        send_email_verification
+        send_email_verification(@user)
         redirect_to root_path,
           notice: t(".success")
       else
@@ -28,12 +28,6 @@ module Avocado
       params
         .require(:user)
         .permit(INITIALIZATION_PARAMETERS)
-    end
-
-    def send_email_verification
-      mailer_for(@user)
-        .email_verification
-        .deliver_later
     end
   end
 end
