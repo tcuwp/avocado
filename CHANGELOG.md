@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.0] - 2023-08-10
+
 ### Added
 
 - An `avocado:views` generator copies engine views into application
