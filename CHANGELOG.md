@@ -4,10 +4,13 @@
 
 ### Added
 
+- An `avocado:views` generator copies engine views into application
+
+### Changed
+
 - Flash messages for controllers moved to i18n yml
-- Generator `avocado:views` copies views directory into application
-- Credentials controller for the password reset phase of recovery
-- Use `_form` partials within views
+- View forms updated to use `_form` partials
+- Move the reset phase of password recovery to a `Credentials` controller
 
 ## [0.6.0] - 2023-07-25
 
