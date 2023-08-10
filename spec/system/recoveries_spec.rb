@@ -29,7 +29,7 @@ RSpec.describe "Recoveries" do
       user = create(:user, verified: true)
       user_signed_id = user.generate_token_for(:password_reset)
 
-      visit edit_recovery_path(id: user_signed_id)
+      visit edit_credential_path(id: user_signed_id)
       fill_in "Password", with: "Password.New.123"
       fill_in "Password confirmation", with: "Password.New.123"
       click_on "Submit"
@@ -41,7 +41,7 @@ RSpec.describe "Recoveries" do
       user = create(:user, verified: true)
       user_signed_id = user.generate_token_for(:password_reset)
 
-      visit edit_recovery_path(id: user_signed_id)
+      visit edit_credential_path(id: user_signed_id)
       fill_in "Password", with: "Password.New.123"
       fill_in "Password confirmation", with: "Password.Wrong"
       click_on "Submit"
@@ -50,7 +50,7 @@ RSpec.describe "Recoveries" do
     end
 
     it "fails with bad link" do
-      visit edit_recovery_path(id: "fake")
+      visit edit_credential_path(id: "fake")
 
       expect(page).to have_content(/link is invalid/)
     end

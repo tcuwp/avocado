@@ -99,9 +99,10 @@ These external (unauthenticated) features are available:
 
 - `Registrations` -- Fill out new user form and create users
 - `Sessions` -- Sign in and sign out
-- `Recoveries` -- Trigger password reset, click link, confirm
-- `Verifications` -- Email confirmation on account creation or email change
-- `Affirmations` -- Provides a "passwordless" auth via emailed link
+- `Recoveries` -- Triggers password reset via emailed expiring link
+- `Credentials` -- Use expiring token link from recovery to update password
+- `Verifications` -- Confirm email address on account creation or email change
+- `Affirmations` -- "Passwordless" authentication via emailed expiring link
 
 These internal (authenticated) features are available:
 

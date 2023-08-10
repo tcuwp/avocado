@@ -8,6 +8,11 @@ en:
         unverified_email: Verify email first before signing in.
       update:
         success: Signed in successfully.
+    credentials:
+      update:
+        success: Password reset successfully.
+      errors:
+        invalid_token: Password reset link is invalid.
     emails:
       update:
         success: Email has been changed.
@@ -20,10 +25,7 @@ en:
       create:
         success: Check email for reset instructions.
       errors:
-        invalid_token: Password reset link is invalid.
         unverified_email: Verify email first before resetting password.
-      update:
-        success: Password reset successfully.
     registrations:
       create:
         success: Registration successful.
