@@ -10,11 +10,6 @@
 <% end %>
 
 <%= form_with model: @user, url: email_path, method: :patch do |form| %>
-  <%= form.label :email %>
-  <%= form.email_field :email, autocomplete: "email", required: true %>
-
-  <%= form.label :password_challenge, "Current password" %>
-  <%= form.password_field :password_challenge, autocomplete: "current-password", required: true %>
-
+  <%= render form %>
   <%= form.button "Submit", name: nil %>
 <% end %>

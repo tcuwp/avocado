@@ -7,17 +7,6 @@
 </p>
 
 <%= form_with model: @user, url: registrations_path do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
-  </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password, autocomplete: "new-password", required: true %>
-  </div>
-  <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true %>
-  </div>
+  <%= render form %>
   <%= form.button "Submit", name: nil %>
 <% end %>

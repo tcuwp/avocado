@@ -1,0 +1,8 @@
+<div>
+  <%= form.label :email %>
+  <%= form.email_field :email, autocomplete: "email", required: true %>
+</div>
+<div>
+  <%= form.label :password_challenge, "Current password" %>
+  <%= form.password_field :password_challenge, autocomplete: "current-password", required: true %>
+</div>

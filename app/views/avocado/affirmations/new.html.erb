@@ -7,8 +7,6 @@
 </p>
 
 <%= form_with url: affirmations_path, scope: :user do |form| %>
-  <%= form.label :email %>
-  <%= form.email_field :email, autofocus: true, autocomplete: "email", required: true %>
-
+  <%= render form %>
   <%= form.button "Submit", name: nil %>
 <% end -%>
