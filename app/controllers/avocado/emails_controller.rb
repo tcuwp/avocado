@@ -12,6 +12,8 @@ module Avocado
     def update
       if @user.update(update_parameters)
         process_email_update
+        redirect_to root_path,
+          notice: t(".success")
       else
         render :edit, status: :unprocessable_entity
       end
@@ -32,10 +34,6 @@ module Avocado
     def process_email_update
       if @user.email_previously_changed?
         send_email_verification(@user)
-        redirect_to root_path,
-          notice: t(".success")
-      else
-        redirect_to root_path
       end
     end
   end

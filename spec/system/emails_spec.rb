@@ -1,6 +1,6 @@
 RSpec.describe "Emails" do
   describe "Changing a user email" do
-    it "updates the email with correct current password" do
+    it "updates the email and re-verifies with correct current password" do
       user = create(:user)
       sign_in(user)
 
@@ -15,7 +15,7 @@ RSpec.describe "Emails" do
       expect(page).to have_content(/has been changed/)
     end
 
-    it "preserves current email with correct current password" do
+    it "preserves current email and does not re-verify with correct current password" do
       user = create(:user)
       sign_in(user)
 
@@ -26,7 +26,7 @@ RSpec.describe "Emails" do
       expect {
         click_on "Submit"
       }.not_to change(Avocado::Mailer.deliveries, :size)
-      expect(page).not_to have_content(/has been changed/)
+      expect(page).to have_content(/has been changed/)
     end
 
     it "does not update the email with incorrect password" do
