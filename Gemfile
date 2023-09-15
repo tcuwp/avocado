@@ -6,7 +6,7 @@ gemspec
 gem "capybara"
 gem "combustion"
 gem "factory_bot_rails"
-gem "rails", github: "rails/rails"
+gem "rails", "~> 7.1.0.beta1"
 gem "rake"
 gem "rspec-rails"
 gem "rubocop-rspec"

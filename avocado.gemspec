@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "bcrypt", "~> 3.1"
-  spec.add_dependency "rails", "~> 7.1.0.alpha"
+  spec.add_dependency "rails", "~> 7.1.0.beta1"
 end
