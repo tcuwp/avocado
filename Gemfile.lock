@@ -3,7 +3,7 @@ PATH
   specs:
     avocado (0.7.0)
       bcrypt (~> 3.1)
-      rails (~> 7.1.0.beta1)
+      rails (~> 7.1)
 
 GEM
   remote: https://rubygems.org/
@@ -298,7 +298,7 @@ DEPENDENCIES
   capybara
   combustion
   factory_bot_rails
-  rails (~> 7.1.0.beta1)
+  rails (~> 7.1)
   rake
   rspec-rails
   rubocop-rspec
