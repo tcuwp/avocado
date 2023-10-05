@@ -122,15 +122,14 @@ within `app/views/avocado/mailer/` to make this happen.
 
 ### Before actions
 
-There is an `authenticate` method installed as default controller behavior using
-`before_action :authenticate`. Any actions which do not need to be authenticated
-should disable this with `skip_before_action :authenticate`, or inherit from a
-controller which performs the skip.
+There are two methods added to the default `before_action` stack:
 
-There is also a `set_current_request_details` method installed as a default
-`before_action` which takes some loggable request meta information (User Agent,
-IP Address) and sets their values in `Current` so that they are accesible to
-code elsewhere in the 🥑 gem.
+- The `authenticate` method defaults controller behavior to require a signed in
+  session. Actions can disable it with `skip_before_action :authenticate`, or
+  inherit from a controller which performs the skip.
+- The `set_current_request_details` method makes some loggable request meta
+  information (User Agent, IP Address) values available in `Current` so that
+  they are accesible to code elsewhere in the 🥑 gem.
 
 ### Helpers
 
@@ -149,8 +148,7 @@ There is not any configuration. To override functionality:
 
 - Redefine a method created in one of the models by the included module
 - Subclass a controller and update the routing to go to the subclass
-- Place views in the app where avocado expects (`app/views/avocado`) them to
-  override the defaults
+- Place views in the app where 🥑 expects them (`app/views/avocado`) to override
 
 There is an `avocado:views` generator which will copy all the views as a
 starting point for further modification.
