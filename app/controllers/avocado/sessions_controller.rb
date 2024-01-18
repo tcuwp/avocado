@@ -30,7 +30,7 @@ module Avocado
     end
 
     def destroy
-      @session.destroy
+      @session.destroy!
       redirect_to sessions_path,
         notice: t(".success")
     end
