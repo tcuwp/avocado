@@ -40,7 +40,7 @@ module Avocado
     end
 
     def session_from_token
-      ::Session.find_by_token(cookies.signed[:session_token])
+      ::Session.find_by(token: cookies.signed[:session_token])
     end
 
     def set_current_request_details
