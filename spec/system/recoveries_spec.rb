@@ -13,7 +13,7 @@ RSpec.describe "Recoveries" do
 
     it "does not send for a non-verified user" do
       user = create(:user, verified: true)
-      user.update(verified: false)
+      user.update!(verified: false)
 
       visit new_recovery_path
       fill_in "Email", with: user.email
