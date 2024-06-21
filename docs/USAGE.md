@@ -120,7 +120,7 @@ There is an `Avocado::Mailer` which gets called to send emails. The mailer views
 here are very basic, and should be overriden within applications. Place views
 within `app/views/avocado/mailer/` to make this happen.
 
-### Before actions
+### Filters
 
 There are two methods added to the default `before_action` stack:
 
