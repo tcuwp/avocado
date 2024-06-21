@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Minimum ruby version is now 3.0
+
 ## [0.7.0] - 2023-08-10
 
 ### Added
