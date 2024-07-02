@@ -33,6 +33,8 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.order = :random
+
   config.use_transactional_fixtures = true
 
   config.include FactoryBot::Syntax::Methods
