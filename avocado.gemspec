@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Simple authentication for Rails (7.1+) applications"
   spec.homepage = "https://github.com/tcuwp/avocado"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.0"
+  spec.required_ruby_version = Avocado::MINIMUM_RUBY_VERSION
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/tcuwp/avocado"
