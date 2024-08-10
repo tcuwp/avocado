@@ -1,9 +1,9 @@
-name: Ruby
+name: Continuous Interrogation
 
 on:
   push:
     branches:
-    - main
+      - main
   pull_request:
 
 jobs:
@@ -13,10 +13,10 @@ jobs:
     strategy:
       matrix:
         ruby-version:
-          - '3.0'
-          - '3.1'
-          - '3.2'
-          - '3.3'
+          - "3.0"
+          - "3.1"
+          - "3.2"
+          - "3.3"
 
     steps:
       - uses: actions/checkout@v4
