@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in avocado.gemspec
 gemspec
 
+gem "appraisal"
 gem "capybara"
 gem "combustion"
 gem "factory_bot_rails"

@@ -80,6 +80,10 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    appraisal (2.5.0)
+      bundler
+      rake
+      thor (>= 0.14.0)
     ast (2.4.2)
     base64 (0.2.0)
     bcrypt (3.1.20)
@@ -290,6 +294,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  appraisal
   avocado!
   capybara
   combustion
