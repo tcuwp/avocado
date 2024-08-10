@@ -12,7 +12,7 @@ gem "rspec-rails"
 gem "rubocop-rspec"
 gem "shoulda-matchers"
 gem "simplecov", require: false
-gem "sqlite3"
+gem "sqlite3", "~> 1.7"
 gem "standard-performance"
 gem "standard-rails"
 gem "standard"
