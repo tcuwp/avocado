@@ -294,7 +294,6 @@ DEPENDENCIES
   capybara
   combustion
   factory_bot_rails
-  rails (~> 7.1)
   rake
   rspec-rails
   rubocop-rspec
