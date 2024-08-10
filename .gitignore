@@ -12,3 +12,6 @@
 
 # Generated sqlite3 database
 spec/internal/db/*.sqlite*
+
+# Appraisal lockfiles
+gemfiles/*.lock
