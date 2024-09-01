@@ -249,7 +249,7 @@ GEM
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
     securerandom (0.3.1)
-    shoulda-matchers (6.3.0)
+    shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
       docile (~> 1.1)
