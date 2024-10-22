@@ -33,6 +33,14 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
+      - name: Version announcement
+        continue-on-error: true
+        run: |
+          ruby --version
+          bundle --version
+          echo "RubyGems version `gem --version`"
+          bundle exec rails --version
+
       - name: Run spec suite
         run: |
           bin/rspec
