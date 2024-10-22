@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    avocado (0.7.0)
+    avocado (0.8.0)
       bcrypt (~> 3.1)
       rails (>= 7.1)
 
