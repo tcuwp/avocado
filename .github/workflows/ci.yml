@@ -15,6 +15,7 @@ jobs:
         gemfile:
           - "7.1"
           - "7.2"
+          - "8.0"
         ruby-version:
           - "3.2"
           - "3.3"
