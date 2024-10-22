@@ -9,7 +9,7 @@ require "rails/all"
 
 Bundler.require :default, :development
 Combustion.initialize! :all do
-  config.load_defaults 7.1
+  config.load_defaults Rails::VERSION::STRING.to_f
   config.action_mailer.delivery_method = :test
   config.active_job.queue_adapter = :inline
 end
