@@ -5,7 +5,7 @@
 ### Changed
 
 - Minimum ruby version is now 3.2
-- Allow newer Rails versions
+- Allow Rails versions 7.2 and 8.0
 
 ## [0.7.0] - 2023-08-10
 
