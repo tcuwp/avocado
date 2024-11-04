@@ -1,8 +1,8 @@
-RSpec.describe "Passwords" do
+RSpec.describe "Profiles" do
   describe "Changing the password" do
     it "updates password with valid inputs" do
       sign_in create(:user)
-      visit edit_password_path
+      visit edit_profile_path
 
       fill_in "Current password", with: "Password.12345"
       fill_in "Password", with: "Password.23456"
@@ -14,7 +14,7 @@ RSpec.describe "Passwords" do
 
     it "does not updates password with wrong current password" do
       sign_in create(:user)
-      visit edit_password_path
+      visit edit_profile_path
 
       fill_in "Current password", with: "Password.Wrong.Current"
       fill_in "Password", with: "Password.23456"
@@ -26,7 +26,7 @@ RSpec.describe "Passwords" do
 
     it "does not updates password without matching confirmation" do
       sign_in create(:user)
-      visit edit_password_path
+      visit edit_profile_path
 
       fill_in "Current password", with: "Password.12345"
       fill_in "Password", with: "Password.23456"

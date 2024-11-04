@@ -6,7 +6,7 @@ RSpec.describe "Emails" do
 
       visit edit_email_path
 
-      fill_in "Email", with: "new@example.com"
+      fill_in "Email address", with: "new@example.com"
       fill_in "Current password", with: "Password.12345"
 
       expect {
@@ -20,7 +20,7 @@ RSpec.describe "Emails" do
       sign_in(user)
 
       visit edit_email_path
-      fill_in "Email", with: user.email
+      fill_in "Email address", with: user.email_address
       fill_in "Current password", with: "Password.12345"
 
       expect {
@@ -34,7 +34,7 @@ RSpec.describe "Emails" do
       sign_in(user)
 
       visit edit_email_path
-      fill_in "Email", with: "new@example.com"
+      fill_in "Email address", with: "new@example.com"
       fill_in "Current password", with: "Password.Wrong"
       click_on "Submit"
 
@@ -46,7 +46,7 @@ RSpec.describe "Emails" do
       sign_in(user)
 
       visit edit_email_path
-      fill_in "Email", with: "new-at-domain-dot-com"
+      fill_in "Email address", with: "new-at-domain-dot-com"
       fill_in "Current password", with: "Password.12345"
       click_on "Submit"
 

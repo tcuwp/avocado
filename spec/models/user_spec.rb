@@ -1,7 +1,7 @@
 RSpec.describe User do
   describe "Authentication" do
-    it "Authenticates by email and password" do
-      user_params = {email: "test@host.example", password: "Test.1234"}
+    it "Authenticates by email address and password" do
+      user_params = {email_address: "test@host.example", password: "Test.1234"}
       user = create(:user, user_params)
 
       expect(described_class.authenticate_by(user_params)).to eq(user)
@@ -36,17 +36,17 @@ RSpec.describe User do
   describe "Normalizations" do
     describe "Whitespace" do
       it "Strips value during save" do
-        user = create(:user, email: "  user@host.example   ")
+        user = create(:user, email_address: "  user@host.example   ")
 
-        expect(user.email).to eq("user@host.example")
+        expect(user.email_address).to eq("user@host.example")
       end
     end
 
     describe "Mixed casing" do
       it "Downcases during save" do
-        user = create(:user, email: "User@HOSt.exAMPle")
+        user = create(:user, email_address: "User@HOSt.exAMPle")
 
-        expect(user.email).to eq("user@host.example")
+        expect(user.email_address).to eq("user@host.example")
       end
     end
   end
@@ -64,14 +64,14 @@ RSpec.describe User do
     describe "Email" do
       subject { create(:user) }
 
-      it { is_expected.not_to allow_value("host.example").for(:email) }
-      it { is_expected.not_to allow_value("user@").for(:email) }
-      it { is_expected.not_to allow_value("user@host.example@host.example").for(:email) }
-      it { is_expected.to allow_value("user@host.example").for(:email) }
-      it { is_expected.to allow_value("user@multiple.names.host.example").for(:email) }
-      it { is_expected.to allow_value("user+scope@host.example").for(:email) }
-      it { is_expected.to validate_presence_of(:email) }
-      it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
+      it { is_expected.not_to allow_value("host.example").for(:email_address) }
+      it { is_expected.not_to allow_value("user@").for(:email_address) }
+      it { is_expected.not_to allow_value("user@host.example@host.example").for(:email_address) }
+      it { is_expected.to allow_value("user@host.example").for(:email_address) }
+      it { is_expected.to allow_value("user@multiple.names.host.example").for(:email_address) }
+      it { is_expected.to allow_value("user+scope@host.example").for(:email_address) }
+      it { is_expected.to validate_presence_of(:email_address) }
+      it { is_expected.to validate_uniqueness_of(:email_address).ignoring_case_sensitivity }
     end
   end
 
@@ -90,7 +90,7 @@ RSpec.describe User do
         tablet_session = create(:session, user: user)
         phone_session = create(:session, user: user)
 
-        Avocado::Current.session = phone_session
+        Current.session = phone_session
 
         expect { user.update(password: "New.Pass.123", password_confirmation: "New.Pass.123") }.to change(user.sessions, :count).from(3).to(1)
         expect { desktop_session.reload }.to raise_error(ActiveRecord::RecordNotFound)
@@ -100,16 +100,16 @@ RSpec.describe User do
 
     describe "Email changes" do
       it "sets verified to false when email changes" do
-        user = create(:user, email: "user@host.example", verified: true)
+        user = create(:user, email_address: "user@host.example", verified: true)
 
-        expect { user.update(email: "new@host.example") }.to change(user, :verified).from(true).to(false)
+        expect { user.update(email_address: "new@host.example") }.to change(user, :verified).from(true).to(false)
       end
 
       it "logs action in a user event" do
-        user = create(:user, email: "user@host.example", verified: true)
+        user = create(:user, email_address: "user@host.example", verified: true)
 
-        expect { user.update(email: "new@host.example") }.to change(user.events, :count).by(1)
-        expect(user.events.last.action).to eq("email:update")
+        expect { user.update(email_address: "new@host.example") }.to change(user.events, :count).by(1)
+        expect(user.events.last.action).to eq("email_address:update")
       end
     end
 
@@ -118,7 +118,7 @@ RSpec.describe User do
         user = create(:user, verified: false)
 
         expect { user.update(verified: true) }.to change(user.events, :count).by(1)
-        expect(user.events.last.action).to eq("email:verified")
+        expect(user.events.last.action).to eq("email_address:verified")
       end
     end
   end

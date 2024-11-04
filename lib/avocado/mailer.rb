@@ -3,17 +3,13 @@ module Avocado
     before_action :set_user
     before_action :set_signed_id
 
-    default to: -> { @user.email }
+    default to: -> { @user.email_address }
 
     def email_affirmation
       mail
     end
 
     def email_verification
-      mail
-    end
-
-    def password_reset
       mail
     end
 

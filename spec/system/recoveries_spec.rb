@@ -3,54 +3,42 @@ RSpec.describe "Recoveries" do
     it "sends the reset email" do
       user = create(:user, verified: true)
 
-      visit new_recovery_path
-      fill_in "Email", with: user.email
-      click_on "Submit"
+      visit new_password_path
+      find("#email_address").fill_in with: user.email_address
+      within("form") { find("[type=submit]").click }
 
-      expect(page).to have_content(/Check email for reset/)
+      expect(page).to have_content(/instructions sent/)
       expect(Avocado::Mailer.deliveries.size).to eq(1)
-    end
-
-    it "does not send for a non-verified user" do
-      user = create(:user, verified: true)
-      user.update!(verified: false)
-
-      visit new_recovery_path
-      fill_in "Email", with: user.email
-      click_on "Submit"
-
-      expect(page).to have_content(/Verify email first/)
-      expect(Avocado::Mailer.deliveries.size).to eq(0)
     end
   end
 
   describe "Changing a user password" do
     it "updates the password" do
       user = create(:user, verified: true)
-      user_signed_id = user.generate_token_for(:password_reset)
+      user_signed_id = user.password_reset_token
 
-      visit edit_credential_path(id: user_signed_id)
-      fill_in "Password", with: "Password.New.123"
-      fill_in "Password confirmation", with: "Password.New.123"
-      click_on "Submit"
+      visit edit_password_path(user_signed_id)
+      find("#password").fill_in with: "Password.New.123"
+      find("#password_confirmation").fill_in with: "Password.New.123"
+      within("form") { find("[type=submit]").click }
 
-      expect(page).to have_content(/reset successfully/)
+      expect(page).to have_content(/has been reset/)
     end
 
     it "fails with non matching password" do
       user = create(:user, verified: true)
-      user_signed_id = user.generate_token_for(:password_reset)
+      user_signed_id = user.password_reset_token
 
-      visit edit_credential_path(id: user_signed_id)
-      fill_in "Password", with: "Password.New.123"
-      fill_in "Password confirmation", with: "Password.Wrong"
-      click_on "Submit"
+      visit edit_password_path(user_signed_id)
+      find("#password").fill_in with: "Password.New.123"
+      find("#password_confirmation").fill_in with: "Password.Wrong"
+      within("form") { find("[type=submit]").click }
 
-      expect(page).to have_content(/Change your password/)
+      expect(page).to have_content(/did not match/)
     end
 
     it "fails with bad link" do
-      visit edit_credential_path(id: "fake")
+      visit edit_password_path("fake")
 
       expect(page).to have_content(/link is invalid/)
     end

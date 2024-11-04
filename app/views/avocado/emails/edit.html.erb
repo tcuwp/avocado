@@ -2,7 +2,7 @@
   Change your email address
 </h2>
 
-<% if current_user.verified? %>
+<% if Current.user.verified? %>
   <p>Your email address is verified.</p>
 <% else %>
   <p>Your email address is not verified. Check your email and follow the instructions to confirm it's your email address.</p>

@@ -11,7 +11,7 @@ RSpec.describe "Registration" do
     it "creates a user with valid attributes" do
       visit new_registration_path
 
-      fill_in "Email", with: "new@example.com"
+      fill_in "Email address", with: "new@example.com"
       fill_in "Password", with: "Password.12345"
       fill_in "Password confirmation", with: "Password.12345"
       click_on "Submit"
@@ -23,7 +23,7 @@ RSpec.describe "Registration" do
     it "does not create a user with invalid attributes" do
       visit new_registration_path
 
-      fill_in "Email", with: "new@example.com"
+      fill_in "Email address", with: "new@example.com"
       fill_in "Password", with: "Password.12345"
       fill_in "Password confirmation", with: "Password.Wrong"
       click_on "Submit"

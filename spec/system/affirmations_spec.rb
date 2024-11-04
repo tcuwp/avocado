@@ -4,7 +4,8 @@ RSpec.describe "Affirmations" do
       it "sends a link" do
         user = create(:user, verified: true)
         visit new_affirmation_path
-        fill_in "Email", with: user.email
+
+        fill_in "Email address", with: user.email_address
         click_on "Submit"
 
         expect(page).to have_content(/Check email for/)
@@ -15,7 +16,7 @@ RSpec.describe "Affirmations" do
       it "sends a link" do
         user = create(:user, verified: false)
         visit new_affirmation_path
-        fill_in "Email", with: user.email
+        fill_in "Email address", with: user.email_address
         click_on "Submit"
 
         expect(page).to have_content(/Verify email first/)

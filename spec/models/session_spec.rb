@@ -11,14 +11,14 @@ RSpec.describe Session do
 
     describe ".non_current" do
       after do
-        Avocado::Current.reset_all
+        Current.reset_all
       end
 
       it "finds non current records when current is set" do
         mobile_session = create(:session)
         tablet_session = create(:session)
 
-        Avocado::Current.session = mobile_session
+        Current.session = mobile_session
 
         expect(described_class.non_current).to eq [tablet_session]
       end
@@ -33,28 +33,6 @@ RSpec.describe Session do
   end
 
   describe "Callbacks" do
-    describe "Request logging" do
-      after do
-        Avocado::Current.reset_all
-      end
-
-      it "does not set values when not present" do
-        session = create(:session)
-
-        expect(session.user_agent).to be_nil
-        expect(session.ip_address).to be_nil
-      end
-
-      it "sets values when present" do
-        Avocado::Current.ip_address = "192.168.1.1"
-        Avocado::Current.user_agent = "Mozilla 1.0"
-
-        session = create(:session)
-        expect(session.user_agent).to eq("Mozilla 1.0")
-        expect(session.ip_address).to eq("192.168.1.1")
-      end
-    end
-
     describe "Session creation" do
       it "logs action in a user event" do
         user = create(:user)
@@ -72,19 +50,6 @@ RSpec.describe Session do
         expect { session.destroy }.to change(user.events, :count).by(1)
         expect(user.events.last.action).to eq("session:destroy")
       end
-    end
-  end
-
-  describe "Validations" do
-    describe "Token" do
-      it { is_expected.to validate_presence_of(:token) }
-    end
-  end
-
-  describe "Tokens" do
-    it "generates a secure token on save" do
-      session = build(:session)
-      expect(session.token).not_to be_nil
     end
   end
 end

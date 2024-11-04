@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  include Avocado::Authentication
+  include Authentication
 end

@@ -2,7 +2,7 @@
   Change your password
 </h2>
 
-<%= form_with model: @user, url: password_path, method: :patch do |form| %>
+<%= form_with model: @user, url: profile_path, method: :patch do |form| %>
   <%= render form %>
   <%= form.button "Submit", name: nil %>
 <% end %>

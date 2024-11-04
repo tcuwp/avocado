@@ -1,6 +1,6 @@
 module Avocado
   class AffirmationsController < BaseController
-    skip_before_action :authenticate
+    allow_unauthenticated_access
 
     before_action :set_user,
       only: %i[edit update]
@@ -20,7 +20,7 @@ module Avocado
     end
 
     def update
-      sign_in(@user)
+      start_new_session_for(@user)
       redirect_to root_path,
         notice: t(".success")
     end

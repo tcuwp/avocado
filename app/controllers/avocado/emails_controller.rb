@@ -1,6 +1,6 @@
 module Avocado
   class EmailsController < BaseController
-    UPDATE_PARAMETERS = %i[email]
+    UPDATE_PARAMETERS = %i[email_address]
 
     before_action :set_user
     before_action :verify_password_challenge,
@@ -22,7 +22,7 @@ module Avocado
     private
 
     def set_user
-      @user = current_user
+      @user = Current.user
     end
 
     def update_parameters
@@ -32,7 +32,7 @@ module Avocado
     end
 
     def process_email_update
-      if @user.email_previously_changed?
+      if @user.email_address_previously_changed?
         send_email_verification(@user)
       end
     end

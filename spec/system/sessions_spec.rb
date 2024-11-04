@@ -12,22 +12,22 @@ RSpec.describe "Sessions" do
       user = create(:user)
 
       visit new_session_path
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
-      click_on "Submit"
+      find("#email_address").fill_in with: user.email_address
+      find("#password").fill_in with: user.password
+      within("form") { click_on "Sign in" }
 
-      expect(page).to have_content(/Session created/)
+      expect(page).to have_content(/Signed in/)
     end
 
     it "fails with invalid attributes" do
       user = create(:user)
 
       visit new_session_path
-      fill_in "Email", with: user.email
-      fill_in "Password", with: "Wrong"
-      click_on "Submit"
+      find("#email_address").fill_in with: user.email_address
+      find("#password").fill_in with: "Wrong"
+      within("form") { click_on "Sign in" }
 
-      expect(page).to have_content(/Authentication failed/)
+      expect(page).to have_content(/Signed out/)
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe "Sessions" do
         visit sessions_path
         click_on "Delete"
 
-        expect(page).to have_content(/Session destroyed/)
+        expect(page).to have_content(/Signed out/)
       end
     end
   end

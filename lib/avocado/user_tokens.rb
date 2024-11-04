@@ -10,22 +10,8 @@ module Avocado
       generates_token_for :email_affirmation, expires_in: EXPIRES_FAST
 
       generates_token_for :email_verification, expires_in: EXPIRES_LONG do
-        email
+        email_address
       end
-
-      generates_token_for :password_reset, expires_in: EXPIRES_LATER do
-        password_digest_salt
-      end
-    end
-
-    private
-
-    def password_digest_salt
-      password_from_digest.salt[-10..]
-    end
-
-    def password_from_digest
-      BCrypt::Password.new(password_digest)
     end
   end
 end
