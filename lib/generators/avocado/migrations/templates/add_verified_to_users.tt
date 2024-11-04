@@ -1,11 +1,7 @@
 class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Migration.current_version %>]
   def change
-    create_table :users, id: :<%= primary_key_type %> do |t|
-      t.string :email, null: false, index: {unique: true}
-      t.string :password_digest, null: false
+    change_table :users do |t|
       t.boolean :verified, null: false, default: false, index: true
-
-      t.timestamps
     end
   end
 end

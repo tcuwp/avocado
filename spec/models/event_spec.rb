@@ -13,7 +13,7 @@ RSpec.describe Event do
   describe "Callbacks" do
     describe "Request logging" do
       after do
-        Avocado::Current.reset_all
+        Current.reset_all
       end
 
       it "does not set values when not present" do
@@ -24,8 +24,8 @@ RSpec.describe Event do
       end
 
       it "sets values when present" do
-        Avocado::Current.ip_address = "192.168.1.1"
-        Avocado::Current.user_agent = "Mozilla 1.0"
+        session = build(:session, ip_address: "192.168.1.1", user_agent: "Mozilla 1.0")
+        Current.session = session
 
         event = create(:event)
         expect(event.user_agent).to eq("Mozilla 1.0")

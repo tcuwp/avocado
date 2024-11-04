@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Rely on Rails auth generator as starting point
+- Increase minimum Rails version to 8.0
+
 ## [0.8.0] - 2024-10-22
 
 ### Changed

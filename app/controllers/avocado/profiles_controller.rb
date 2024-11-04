@@ -1,5 +1,5 @@
 module Avocado
-  class PasswordsController < BaseController
+  class ProfilesController < BaseController
     UPDATE_PARAMETERS = %i[password password_confirmation password_challenge]
 
     before_action :set_user
@@ -21,7 +21,7 @@ module Avocado
     private
 
     def set_user
-      @user = current_user
+      @user = Current.user
     end
 
     def update_parameters

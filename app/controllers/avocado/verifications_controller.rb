@@ -1,7 +1,7 @@
 module Avocado
   class VerificationsController < BaseController
     with_options only: %i[edit update] do
-      skip_before_action :authenticate
+      allow_unauthenticated_access
       before_action :set_user
     end
 
@@ -15,7 +15,7 @@ module Avocado
     end
 
     def create
-      send_email_verification(current_user)
+      send_email_verification(Current.user)
       redirect_to root_path,
         notice: t(".success")
     end

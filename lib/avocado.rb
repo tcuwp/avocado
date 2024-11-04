@@ -4,8 +4,6 @@ require_relative "avocado/engine"
 module Avocado
   class Error < StandardError; end
 
-  autoload :Authentication, "avocado/authentication"
-  autoload :Current, "avocado/current"
   autoload :Event, "avocado/event"
   autoload :Mailer, "avocado/mailer"
   autoload :Session, "avocado/session"

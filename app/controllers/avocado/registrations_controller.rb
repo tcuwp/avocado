@@ -1,8 +1,8 @@
 module Avocado
   class RegistrationsController < BaseController
-    INITIALIZATION_PARAMETERS = %i[email password password_confirmation]
+    INITIALIZATION_PARAMETERS = %i[email_address password password_confirmation]
 
-    skip_before_action :authenticate
+    allow_unauthenticated_access
 
     def new
       @user = ::User.new
@@ -12,7 +12,7 @@ module Avocado
       @user = ::User.new(initialization_parameters)
 
       if @user.save
-        sign_in(@user)
+        start_new_session_for(@user)
 
         send_email_verification(@user)
         redirect_to root_path,

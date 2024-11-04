@@ -3,8 +3,8 @@ module Avocado
     extend ActiveSupport::Concern
 
     VALID_ACTIONS = [
-      "email:update",
-      "email:verified",
+      "email_address:update",
+      "email_address:verified",
       "password:update",
       "session:create",
       "session:destroy"
@@ -17,14 +17,14 @@ module Avocado
 
       validates :action, inclusion: VALID_ACTIONS
 
-      before_create :capture_request_details
+      before_create :capture_request_details, if: -> { Current.session.present? }
     end
 
     private
 
     def capture_request_details
-      self.user_agent = Current.user_agent
-      self.ip_address = Current.ip_address
+      self.user_agent = Current.session.user_agent
+      self.ip_address = Current.session.ip_address
     end
   end
 end

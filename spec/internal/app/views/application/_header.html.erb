@@ -1,4 +1,8 @@
-<% if signed_in? -%>
-  <p>Hello <%= current_user.email %> </p>
-  <%= button_to "Sign out", current_session, method: :delete %>
+<% if authenticated? -%>
+  <p>Signed in</p>
+  <p>Hello <%= Current.user.email_address %></p>
+  <%= button_to "Sign out", session_path, method: :delete %>
+<% else -%>
+  <p>Signed out</p>
+  <p><%= link_to "Sign in", new_session_path %></p>
 <% end -%>

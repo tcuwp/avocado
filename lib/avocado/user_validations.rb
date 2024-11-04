@@ -6,7 +6,7 @@ module Avocado
     PASSWORD_MINIMUM_LENGTH = 8
 
     included do
-      validates :email,
+      validates :email_address,
         presence: true,
         uniqueness: true,
         format: {with: URI::MailTo::EMAIL_REGEXP}

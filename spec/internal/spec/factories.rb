@@ -1,5 +1,5 @@
 FactoryBot.define do
-  sequence(:email) { |n| "name#{n}@host.example" }
+  sequence(:email_address) { |n| "name#{n}@host.example" }
 
   factory :event do
     user
@@ -11,7 +11,7 @@ FactoryBot.define do
   end
 
   factory :user do
-    email
+    email_address
     password { "Password.12345" }
   end
 end

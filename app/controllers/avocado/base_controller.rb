@@ -1,11 +1,11 @@
 module Avocado
   class BaseController < ApplicationController
-    FINDER_PARAMETERS = %i[email]
+    FINDER_PARAMETERS = %i[email_address]
 
     private
 
     def verify_password_challenge
-      unless current_user.authenticate(params_password_challenge)
+      unless Current.user.authenticate(params_password_challenge)
         redirect_back fallback_location: root_path,
           alert: t("avocado.filters.invalid_password_challenge")
       end
@@ -19,7 +19,7 @@ module Avocado
     def requested_verified_user
       ::User
         .verified
-        .find_by(email: finder_parameters[:email])
+        .find_by(email_address: finder_parameters[:email_address])
     end
 
     def finder_parameters

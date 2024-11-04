@@ -18,7 +18,7 @@ en:
         success: Email has been changed.
     filters:
       invalid_password_challenge: Password challenge failed.
-    passwords:
+    profiles:
       update:
         success: Password has been changed.
     recoveries:
