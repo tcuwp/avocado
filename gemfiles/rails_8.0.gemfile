@@ -15,6 +15,6 @@ gem "sqlite3", "~> 2.0"
 gem "standard-performance"
 gem "standard-rails"
 gem "standard"
-gem "rails", "~> 8.0.0.rc1"
+gem "rails", "~> 8.0.0"
 
 gemspec path: "../"
